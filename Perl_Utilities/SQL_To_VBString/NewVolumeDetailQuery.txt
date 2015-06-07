@@ -1,0 +1,137 @@
+            SELECT 
+                           MPBD.BUSINESS_DIVISION_CODE,  
+                           INITCAP(MPBD.BUSINESS_DIVISION_DESCR)AS BusinessDivisionDescr,  
+                          (MPBD.BUSINESS_DIVISION_CODE ||'--'||INITCAP(MPBD.BUSINESS_DIVISION_DESCR))AS BusinessDivisionCodeDescr,  
+                           M.REGION_CODE,  
+                           M.REGION_DESCR,   
+                           P.MINOR_LINE_CODE,  
+                           INITCAP(P.MINOR_LINE_DESCR) AS MINOR_LINE_DESCR,    
+                           IDS_MF.YEAR_DESCR,  
+                           IDS_MF.MONTH_DESCR,  
+                          SUM(IDS_MF.MF_Pounds_Shipped +  
+                                 IDS_MF.IDS_Pounds_Shipped)
+                                       AS TOTAL_POUNDS_SHIPPED,                 
+                           SUM(IDS_MF.MF_Gross_Sales_Amount 
+						       - IDS_MF.MF_Allow_Amount 
+							   - IDS_MF.MF_Off_Invoice_Amount 
+							   + IDS_MF.MF_Revenue_Adjustment 
+							   + IDS_MF.IDS_Indirect_Sales_Amount)  
+                                      AS NET_RECEIVABLE_DOLLAR             
+                              FROM(  
+                              /*Begin Sub query*/  
+                        SELECT  
+                         MPBD1.BUSINESS_DIVISION_CODE   
+                        ,MPBD1.BUSINESS_DIVISION_DESCR  
+                        ,MPBD1.RESTATED_MARKET_KEY  
+                        ,MPBD1.RESTATED_PRODUCT_KEY  
+                        ,WD.YEAR_DESCR  
+                        ,WD.MONTH_DESCR  
+                        ,WD.FISCAL_MONTH_NUMBER  
+                        ,sum(MF.POUNDS_SHIPPED) AS MF_Pounds_Shipped   
+                        ,sum(MF.GROSS_SALES_AMOUNT) AS MF_Gross_Sales_Amount  
+                        ,sum(MF.ALLOW_AMOUNT) AS MF_Allow_Amount  
+                        ,sum(mf.gross_sales_variance) AS MF_Revenue_Adjustment  
+                        ,sum(MF.OFF_INVOICE_AMOUNT) AS MF_Off_Invoice_Amount  
+                        ,0 AS IDS_Pounds_Shipped  
+                        ,0 AS IDS_Indirect_Sales_Amount  
+                        FROM  TDW_OWNER.RESTATED_MKT_PRD_BUS_DIV_DIM MPBD1  
+                        ,TDW_OWNER.RESTATED_MARKET M1  
+                        ,TDW_OWNER.RESTATED_PRODUCT P1  
+                        ,tdw_owner.ta_margin_fact_view mf/*newly added*/ 
+                        ,tdw_owner.week_dim wd /*new added*/ 
+                        WHERE   
+                            MF.RESTATED_MARKET_KEY = M1.RESTATED_MARKET_KEY   
+                        AND MF.RESTATED_PRODUCT_KEY = P1.RESTATED_PRODUCT_KEY   
+                        AND MF.RESTATED_MARKET_KEY = MPBD1.RESTATED_MARKET_KEY  
+                        AND MF.RESTATED_PRODUCT_KEY = MPBD1.RESTATED_PRODUCT_KEY  
+                        AND To_DATE(mf.week_key,'YYYYMMDD')  = wd.week_ending_date /* newly added*/ 
+                        AND(MPBD1.BUSINESS_DIVISION_CODE IN ('F01', 'F03', 'F04', 'F08', 'F11', 'F12', 'F15'))   
+                        AND (M1.SELLING_GROUP_CODE IN ('119000','125000','610000','800000','423000'))  
+                        AND (wd.YEAR_DESCR IN (:p_Year)) /*newly added             */ 
+                        AND wd.FISCAL_MONTH_NUMBER <= :p_Month /*newly added   */ 
+                        AND (MPBD1.BUSINESS_DIVISION_CODE IN(:p_BusinessDivision))   
+                        AND (M1.DIVISION_CODE IN(:p_SalesDivision))   
+                        AND (M1.REGION_CODE IN(:p_SalesRegion))   
+                        AND (M1.PRIMARY_BROKER_CODE IN(:p_PrimaryBroker))   
+                        Group by  
+                        MPBD1.BUSINESS_DIVISION_CODE   
+                        ,MPBD1.BUSINESS_DIVISION_DESCR  
+                        ,MPBD1.RESTATED_MARKET_KEY  
+                        ,MPBD1.RESTATED_PRODUCT_KEY  
+                        ,wd.year_descr /*newly added*/ 
+                        ,wd.month_descr /*newly added*/ 
+                        ,wd.FISCAL_MONTH_NUMBER /*newly added*/ 
+                        UNION   
+                        SELECT  /*+ RULE */  
+                         MPBD1.BUSINESS_DIVISION_CODE   
+                        ,MPBD1.BUSINESS_DIVISION_DESCR  
+                        ,MPBD1.RESTATED_MARKET_KEY  
+                        ,MPBD1.RESTATED_PRODUCT_KEY  
+                        ,MD.YEAR_DESCR  
+                        ,MD.MONTH_DESCR  
+                        ,MD.FISCAL_MONTH_NUMBER  
+                        ,0 AS MF_Pounds_Shipped  
+                        ,0 AS MF_Gross_Sales_Amount  
+                        ,0 AS MF_Allow_Amount  
+                        ,0 AS MF_Revenue_Adjustment  
+                        ,0 AS MF_Off_Invoice_Amount  
+                        ,sum(IDS.POUNDS_SHIPPED) AS IDS_Pounds_Shipped  
+                        ,sum(IDS.INDIRECT_SALES_AMOUNT) AS IDS_Indirect_Sales_Amount  
+                        FROM  TDW_OWNER.RESTATED_MKT_PRD_BUS_DIV_DIM MPBD1  
+                        ,TDW_OWNER.RESTATED_MARKET M1  
+                        ,TDW_OWNER.MONTH_DIM MD  
+                        ,TDW_OWNER.RESTATED_PRODUCT P1  
+                        ,TDW_OWNER.INDIRECT_SALES IDS  
+                        ,TDW_OWNER.WEEK_DIM W   
+                        WHERE   
+                            IDS.RESTATED_MARKET_KEY = M1.RESTATED_MARKET_KEY  
+                        AND IDS.RESTATED_PRODUCT_KEY = P1.RESTATED_PRODUCT_KEY  
+                        AND IDS.RESTATED_MARKET_KEY = MPBD1.RESTATED_MARKET_KEY  
+                        AND IDS.RESTATED_PRODUCT_KEY = MPBD1.RESTATED_PRODUCT_KEY  
+                        AND IDS.WEEK_KEY = W.WEEK_KEY   
+                        AND W.MONTH_ENDING_DATE = MD.MONTH_ENDING_DATE  
+                        AND(MPBD1.BUSINESS_DIVISION_CODE IN ('F01', 'F03', 'F04', 'F08', 'F11', 'F12', 'F15'))   
+                        AND (M1.SELLING_GROUP_CODE IN ('119000','125000','610000','800000','423000'))  
+                        AND (MD.YEAR_DESCR IN(:p_Year))                 
+                        AND (MD.FISCAL_MONTH_NUMBER= (:p_Month))   
+                        AND (MPBD1.BUSINESS_DIVISION_CODE IN(:p_BusinessDivision))   
+                        AND (M1.DIVISION_CODE IN(:p_SalesDivision))   
+                        AND (M1.REGION_CODE IN(:p_SalesRegion))   
+                        AND (M1.PRIMARY_BROKER_CODE IN(:p_PrimaryBroker))   
+                        group by  
+                        MPBD1.BUSINESS_DIVISION_CODE   
+                        ,MPBD1.BUSINESS_DIVISION_DESCR  
+                        ,MPBD1.RESTATED_MARKET_KEY  
+                        ,MPBD1.RESTATED_PRODUCT_KEY  
+                        ,MD.YEAR_DESCR  
+                        ,MD.MONTH_DESCR  
+                        ,MD.FISCAL_MONTH_NUMBER  
+                           )/*end sub query*/  
+                         IDS_MF  
+                        ,TDW_OWNER.RESTATED_MKT_PRD_BUS_DIV_DIM MPBD  
+                        ,TDW_OWNER.RESTATED_MARKET M  
+                        ,TDW_OWNER.RESTATED_PRODUCT P  
+                        WHERE   
+                            IDS_MF.RESTATED_MARKET_KEY  =  MPBD.RESTATED_MARKET_KEY  
+                        AND IDS_MF.RESTATED_PRODUCT_KEY =  MPBD.RESTATED_PRODUCT_KEY  
+                        AND IDS_MF.RESTATED_MARKET_KEY = M.RESTATED_MARKET_KEY  
+                        AND IDS_MF.RESTATED_PRODUCT_KEY = P.RESTATED_PRODUCT_KEY  
+                        AND(MPBD.BUSINESS_DIVISION_CODE IN ('F01', 'F03', 'F04', 'F08', 'F11', 'F12', 'F15'))   
+                        AND (M.SELLING_GROUP_CODE IN ('119000','125000','610000','800000','423000'))  
+                        AND (IDS_MF.YEAR_DESCR IN(:p_Year))                 
+                        AND (IDS_MF.FISCAL_MONTH_NUMBER = (:p_Month))   
+                        AND (MPBD.BUSINESS_DIVISION_CODE IN(:p_BusinessDivision))   
+                        AND (M.DIVISION_CODE IN(:p_SalesDivision))   
+                        AND (M.REGION_CODE IN(:p_SalesRegion))   
+                        AND (M.PRIMARY_BROKER_CODE IN(:p_PrimaryBroker))   
+                           
+                         GROUP BY  
+                           MPBD.BUSINESS_DIVISION_CODE,  
+                           INITCAP(MPBD.BUSINESS_DIVISION_DESCR),  
+                           M.REGION_CODE,  
+                           M.REGION_DESCR,  
+                           P.MINOR_LINE_CODE,  
+                           INITCAP(P.MINOR_LINE_DESCR),    
+                           IDS_MF.YEAR_DESCR,  
+                           IDS_MF.MONTH_DESCR  
+                           ORDER BY BusinessDivisionDescr,MINOR_LINE_CODE 

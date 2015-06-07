@@ -1,0 +1,223 @@
+(0013) Forecast Exceptions Summary
+(0017) Collaborate Comments
+(0402) perform.tyson.com RunTimes
+(0403) reports.tyson.com RunTimes
+(0405) Transportation Report Audit by Report Name
+Package Baseline Graph
+Report Failures Trend
+Report Failures
+Report Performance Trend v 1.0
+Run History (per User)
+Top 10 Reports w/graph v 1.0
+Top 10 Reports
+Package Baseline Graph
+Top 5 Report Users
+(0319) International Booking
+(0306) Wal-Mart Velocity Report
+(0308) Wal-Mart Margin Summary
+(0276) Food Service EBIT Monthly
+(0278) Food Service Baseline
+(0279) Selling Group 424 Poultry Prepared Food Report
+(0280) Customer Financials
+(0282) Food Service Monthly vs Budget Review (and Monthly YTD)
+(0294) Category Exceptions
+EBIT Level 1
+EBIT Level 2
+Sales Level 1
+Sales Level 2
+(0052) Nature of Complaint between two dates
+(0054) Resolutions between two dates
+(0065) Disciplinary Actions between two dates
+(0330) Comparative Financial Statement | Current Month vs. Previous Month
+(0333) Comparative Financial Statement | Current Qtr vs. Same Qtr Last Year
+(0334) Comparative Financial Statement | Current Qtr vs. Same Qtr Budget
+(0335) Comparative Financial Statement | Current Qtr vs. Previous Qtr
+(0360) Financial Statement - Business Segment Detail | Current Month vs. Same Month Last Year
+(0361) Financial Statement - Business Segment Detail | Current Month vs. Same Month Budget
+(0362) Financial Statement - Business Segment Detail | Current Month vs. Previous Month
+(0363) Financial Statement - Business Segment Detail | Year to Date vs. Prior Year to Date
+(0364) Financial Statement - Business Segment Detail | Year to Date vs. Year to Date Budget
+(0365) Financial Statement - Business Segment Detail | Current Qtr vs. Same Qtr Last Year
+(0366) Financial Statement - Business Segment Detail | Current Qtr vs. Same Qtr Budget
+(0367) Financial Statement - Business Segment Detail | Current Qtr vs. Previous Qtr
+(0345) Financial Statement Drill Down - COGS Detail | Current Month vs. Same Month Budget
+(0349) Financial Statement Drill Down - COGS Detail | Current Qtr vs. Same Qtr Last Year
+(0350) Financial Statement Drill Down - COGS Detail | Current Qtr vs. Same Qtr Budget
+(0351) Financial Statement Drill Down - COGS Detail | Current Qtr vs. Previous Qtr
+(0337) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Budget
+(0338) Financial Statement Drill Down - Expense Detail | Current Month vs. Previous Month
+(0340) Financial Statement Drill Down - Expense Detail | Year to Date vs. Year to Date Budget
+(0342) Financial Statement Drill Down - Expense Detail | Current Qtr vs. Same Qtr Budget
+(0343) Financial Statement Drill Down - Expense Detail | Current Qtr vs. Previous Qtr
+(0353) Financial Statement Drill Down - Product Group Detail | Current Month vs. Same Month Budget
+(0354) Financial Statement Drill Down - Product Group Detail | Current Month vs. Previous Month
+(0358) Financial Statement Drill Down - Product Group Detail | Current Qtr vs. Same Qtr Budget
+(0359) Financial Statement Drill Down - Product Group Detail | Current Qtr vs. Previous Qtr
+(0321) Financial Statement Summary | Current Month vs. Same Month Budget
+(0322) Financial Statement Summary | Current Month vs. Previous Month
+(0323) Financial Statement Summary | Year to Date vs. Prior Year to Date
+(0324) Financial Statement Summary | Year to Date vs. Year to Date Budget
+(0325) Financial Statement Summary | Current Qtr vs. Same Qtr Last Year
+(0326) Financial Statement Summary | Current Qtr vs. Qtr Budget
+(0327) Financial Statement Summary | Current Qtr vs. Previous Qtr
+(7020) Account Summary by Version by Account - All Inclusive
+(7022) Account Summary by Version by Product Group by Account
+(7023) Account Summary by Version by Account by Product Group
+Customer Short Detail
+Top 5 Shorted Customers
+Jessica's Shortage Report
+Fill Rate (Week, MTD, YTD)
+Marcus' Multi Time Period Override
+(0608) International Sales Booking
+(0610) Broiler Feeding Program
+(0132) Min Max Evaluation
+(0388) LP100r1 NA Sales negative Ebit Skus
+(0390) LP100r3 NA Sales negative Ebit Skus
+(0391) LP100r4 NA Sales negative Ebit Skus
+(0406) Current Week vs Prior Week Poultry Item Class
+(0240) Case Ready Fresh Poultry Plant Profitability
+(0241) Plant Profitability Summary
+(0242) Production Cost per Pound Summary
+(0243) 5 Week Trend by Plant
+(0010) Wendy's Summary Report
+(0134) Minor Line Report - Last Week Poultry
+(0134) Minor Line Report - Last Week Prepared
+(0138) Minor Line Green Report - Last Week Poultry and Prepared
+(0023) Capability Study - Chart
+(0035) Capability Study - Direct Charting
+(0037) RVAF Report - Child
+(0041) WPF Report - Child
+(0088) BID Admin Fee Detail
+(0097) New Or Expiring Spending Requests
+(0089) Brokerage Invoice Detail
+(0090) Broker Statement
+(0070) Bundle Incentive By BillTo-MinorLine Or only Minor Line
+(0070) Bundle Incentive By Minor Line
+(0071) Bundle Incentive By BillTo (For All Group Or Selected Group)
+(0078) BillBack Adjustment - Bundle Version
+(0079) Manual Adjustment - Bundle Version
+(0080) Bid Sales Adjustment - Bundle Version
+(0081) Rate Schedule
+(0060) Payout Invoice Detail - Burst Bill To
+(0060) Payout Invoice Detail - Burst Month Ending
+(0062) Payout Invoice By Bill To / Minor Line - Burst Month Ending
+(0078) BillBack Adjustment - Burst by Month Ending Date
+(0080) Bid Sales Adjustment - Burst by Month Ending Date
+(0080) Bid Sales Adjustment - Payout Version
+(0080) Bid Sales Adjustment - QA Restore
+(0081) Rate Schedule - Burst By Month Ending Date
+(0060) Payout Invoice Detail
+(0061) Payout by ML/Prod/Brand-NonZero Rate or Zero Rate
+(0062) Payout Invoice By Bill To / Minor Line
+(0063) Payout by Component - Bill To / Minor Line
+(0078) BillBack Adjustment
+(0079) Manual Adjustment
+(0080) Bid Sales Adjustment
+(0081) Rate Schedule
+(0064) Volume Attainment By BillTo-MinorLine or only Minor Line
+(0064) Volume Attainment By BillTo-MinorLine or only Minor Line-New
+(0067) Volume Attainment By Bill To (For All Group Or Selected Group)
+(0067) Volume Attainment By Bill To (For All Group Or Selected Group)-New
+(0078) BillBack Adjustment - Volume Version
+(0079) Manual Adjustment - Volume Version
+(0080) Bid Sales Adjustment - Volume Version
+(0081) Rate Schedule
+(0068) Volume Incentive By BillTo-MinorLine Or only Minor Line
+(0068) Volume Incentive By BillTo-MinorLine Or only Minor Line-New
+(0068) Volume Incentive By BillTo-MinorLine
+(0069) Volume Incentive By BillTo (For All Group Or Selected Group)
+(0069) Volume Incentive By BillTo (For All Group Or Selected Group)-New
+(0069) Volume Incentive By BillTo (For All Group Or Selected Group)-New-1.1
+0070-Bundle Reports
+0085-Volume Incentive Reports
+(0114) Deli MDF Comparison
+(0139) Consumer Greenbook
+(0167) Food Service Business Review - Batch 0001 v0.01
+(0167) Food Service Business Review - Batch 0001
+(0167) Food Service Business Review - Batch 0002
+(0167) Food Service Business Review - Batch 0004
+(0167) Food Service Business Review - Batch 0005
+(0167) Food Service Business Review - Batch 0006
+(0167) Food Service Business Review - Batch 0035
+(0167) Food Service Business Review - Batch 0038
+(0167) Food Service Business Review - Batch 0039
+(0167) Food Service Business Review - Batch 0040
+(0167) Food Service Business Review - Batch
+(7038) Case Shortage - By Group/By Bill To
+(7039) Case Shortage - By Bill To/By Group
+WSchuhknecht Gap Analysis - Key Account
+WSchuhknecht Gap Analysis
+LJ Weekly/Monthly Report
+R Skinner MTP
+Whole Bird Rank by Plant (Week, Month, YTD)
+Whole Bird Rank by Plant
+Marcus's Multi Time Periods
+(0165) Detail Sales Analysis
+(0169) Excess Sales
+(0170) Comparative Sales
+(0176) Retail Sales Customer Sales Mix Detail
+(0179) Retail 12 Month Comparison
+(2015) Production Sales Inventory Report
+(2076) Retail Financial CMF Comparison
+(2200) No Change Inventory
+(7032) Distribution Summary by DBM
+(7033) Sales Expense Management
+(7034) Distribution Manager Summary Expenses by Account
+(7035) Corporate Manager Summary Expenses by Account
+(7037) Sales Expense Management Overall Summary
+(7040) Sales Expense Management Summary by Sub-Class
+(7041) Sales Expense Management Spending Summary by Broker
+(7042) Direct/Indirect Sales
+(0115) Demand Per Fiscal Month
+12 Month Retail Fresh Regular Business Forecast
+Copy of (0123) Forecast Comparison - Business Unit
+(0013) Forecast Exceptions Summary
+(0014) Product Group Summary
+(0031) Demand Comments
+(0073) Forecast Exceptions Details
+(0112) Sales with No Forecast
+(0113) Promotions Report
+(0115) Demand Per Fiscal Month
+(0122) Forecast Comparison - Product by Demand Group
+(0123) Forecast Comparison - Business Unit
+(0154) MAPE APE Product Subtotal
+(0155) APE Product Total
+(0015) Required Production
+(0047) Plan Analysis Total Page - Items by Location
+(0086) Plan & Inventory - Report Totals Only
+(0087) Plan & Inventory - Process Totals
+(0104) Plan Analysis Total Page - Process by Parts
+(0105) Plan Analysis Total Page - Part by Processes
+(0106) Plan Analysis Total Page - Item Detail
+(0107) Plan Analysis Total Page Drill Through - by Location
+(0111) Plan Analysis Total Page - by Product Group
+(0126) Line Requirements From Forecast
+(0142) Historical & Future Weekly Detail
+(0208) Target Inventory Report
+(6001) SKU Plan Exception Report - by Process
+(6002) SKU Plan Exception Report - by Part
+(6003) SKU Plan Exception Report - by Product Group
+(6004) SKU Plan Exception Report - by Location
+(6005) SKU Plan Exception Report - by Item
+Tyson Attendance Notification Report
+Tyson Call-In Report
+Tyson Daily Roster Report
+(0201) Booked Freight Detail Report-Batch
+(0203) Debit Accounts Report
+(0204) Debit Accounts for Week Report-Batch
+(0213) Outside Transportation Margin Report - Batch
+(8026) Shuttle Setup Time Analysis Report
+(8034) Continuous Move Captured Analysis Report
+(8035) Aggregate Outbound Shipments by Resp Code and State by Month Report
+(8036) Aggregate Outbound Shipments by Resp Code and State by Week Report
+(8037) Business Plan Adherence For Loop Report
+(0152) Cumulative Quarterly Service Failure Report
+(8001) Customer Charged for holding Truck Report
+(8003) Detention Analysis - Sort by Customer Name
+(8004) Detention Analysis - Sort by Reason Description
+(8005) Detention Analysis - Sort by Selling Group
+(8010) Percentage of Shipments with Departure call after DDT Report
+(8018) Service Failure Report by Drops Sort by Drop Location
+(8019) Service Failure Report by Drops Sort by Responsibility Code
+(8024) Service Failure Summary by Drops Report
+(8032) Detention Analysis by Sell Group Customer Report

@@ -1,0 +1,202 @@
+'=============================================================================
+'  File:	ConfigureSystemProperties.rss
+'
+'  Summary:	Demonstrates a script that can be used with RS.exe to 
+'              	get, set or delete report server system properties.
+'
+'
+'---------------------------------------------------------------------
+' This file is part of Microsoft SQL Server Code Samples.
+'
+'  Copyright (C) Microsoft Corporation.  All rights reserved.
+'
+' This source code is intended only as a supplement to Microsoft
+' Development Tools and/or on-line documentation.  See these other
+' materials for detailed information regarding Microsoft code samples.
+'
+' THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+' KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+' IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+' PARTICULAR PURPOSE.
+'=============================================================================
+'
+' 1.0 Documentation
+'
+' Read the following in order to familiarize yourself with the sample script.
+' 
+' 1.1 Overview
+'
+' This sample script retrieves system properties ("get" mode) and stores them
+' in an .ini file that can then be modified. The modified values for system 
+' properties can be set ("set" mode) from the values in the .ini file.
+' In addition, custom properties can be added to the .ini file and uploaded
+' to the server. At any time, you can use the script to delete ("delete" mode)
+' your custom properties. You do not need to set all the properties every time
+' and your ini file can contain only those properties that you are intereseted
+' in modifying.
+' 
+' 1.2 Script Variables
+'
+' Variables that are passed on the command line with the -v switch:
+'
+' (a) mode - the mode for configuring properties. Possible values are "get", 
+'     "set" and "delete". "Get" retrieves the current list of system properties 
+'     and stores them in the configuration file ReportServerProperties.ini. 
+'     "Set" takes the properties in the ini file and applies them to the server. 
+'     Changes to the ini file will be reflected in your report server system 
+'     properties. "Delete" deletes the property specified by the 
+'     propertyName variable. The value of the mode variable is case insensitive.
+'
+' (b) propertyName - the name of the property to delete. This is only used in
+'     delete mode, but must always have a value (blank when in get or set mode).
+'     If you attempt to delete a property that does not exist, it will be
+'     ignored.
+'
+' 
+' 1.3 Sample Command Lines
+' 
+' 
+' 1.3.1 Use "get" mode to create the .ini configuration file
+' 
+'       rs -i ConfigureSystemProperties.rss -s http://localhost/reportserver -v mode="get" -v propertyName=""
+'
+' 1.3.2 Use "set" mode to update or modify system properties stored in the
+'	ini file.
+'
+'       rs -i ConfigureSystemProperties.rss -s http://localhost/reportserver -v mode="set" -v propertyName=""
+'
+' 1.3.3 Delete a custom property from the report server
+'
+'       rs -i ConfigureSystemProperties.rss -s http://localhost/reportserver -v mode="delete" -v propertyName="MyCustomProperty"
+'
+
+Private Const PATH As String = "ReportServerProperties.ini"
+Private numberOfProperties As Integer = 0
+
+Sub Main()
+    
+    rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+
+    Try
+        Dim properties As [Property]() = GetSystemProperties(numberOfProperties)
+
+        If mode.ToLower() = "get" Then
+            WritePropertiesToFile(properties)
+        ElseIf mode.ToLower() = "set" Then
+            Dim filePropCount As Integer = GetPropertyCountFromFile()
+            If filePropCount <> numberOfProperties Then
+                Console.WriteLine("Information: The number of properties in the file are not equal to the current number of server properties. " & _
+                    "You may be setting just a few properties or adding new properties.")
+            End If
+
+            Dim readProperties As [Property]() = ReadPropertiesFromFile(filePropCount)
+
+            rs.SetSystemProperties(readProperties)
+            DisplayOutputText(readProperties)
+        ElseIf mode.ToLower() = "delete" Then
+            Dim removeProperties As [Property]()
+            removeProperties = New [Property](0) {New [Property]}
+            removeProperties(0).Name = propertyName
+            rs.SetSystemProperties(removeProperties)
+            Console.WriteLine("Property {0} removed successfully from the report server.", propertyName)
+        Else
+            Console.WriteLine("Unrecognized mode argument. Command was not completed successfully.")
+        End If
+
+    Catch ex As IOException
+        Console.WriteLine(("An error occured attempting to access the ini file: " + ex.Message))
+
+    Catch ex As SoapException
+        HandleSpecificSoapError(ex)
+
+    Catch ex As Exception
+        Console.WriteLine(ex.Message)
+    End Try
+End Sub 'Main
+
+Private Function GetSystemProperties(ByRef propertyCount As Integer) As [Property]()
+    Dim properties As [Property]() = rs.GetSystemProperties(Nothing)
+    propertyCount = properties.Length
+    Return properties
+End Function 'GetSystemProperties
+
+
+Private Sub WritePropertiesToFile(ByVal props() As [Property])
+    Dim sw As StreamWriter = Nothing
+
+    sw = File.CreateText(PATH)
+
+    Dim p As [Property]
+    For Each p In props
+        sw.WriteLine((p.Name + "=" + p.Value))
+    Next p
+
+    sw.Close()
+    Console.WriteLine("ReportServerProperties.ini file created successfully.")
+End Sub 'WritePropertiesToFile
+
+
+Private Function ReadPropertiesFromFile(ByVal propCount As Integer) As [Property]()
+    Dim properties As [Property]() = Nothing
+    Dim sr As StreamReader = Nothing
+    Dim maxElementValue As Integer = propCount - 1
+
+    sr = File.OpenText(PATH)
+    Dim s As String = ""
+    Dim delimiters(0) As Char
+    delimiters(0) = "="c
+    properties = New [Property](maxElementValue) {}
+
+    For i As Integer = 0 To maxElementValue
+        s = sr.ReadLine()
+        Dim elements As String() = s.Split(delimiters, 2)
+        properties(i) = New [Property]
+        properties(i).Name = elements(0).ToString()
+        properties(i).Value = elements(1).ToString()
+    Next i
+
+    Return properties
+End Function 'ReadPropertiesFromFile
+
+
+Private Sub DisplayOutputText(ByVal properties() As [Property])
+    If Not (properties Is Nothing) Then
+        Dim p As [Property]
+        For Each p In properties
+            Console.WriteLine((p.Name + "=" + p.Value))
+        Next p
+    Else
+        Throw New Exception("Cannot display properties.")
+    End If
+End Sub 'DisplayOutputText
+
+Private Function GetPropertyCountFromFile() As Integer
+    Dim propertyCount As Integer = -1
+    Dim sr As StreamReader = Nothing
+
+    ' Open the ini file and return the number of properties 
+    ' currently exposed by the server
+    sr = File.OpenText(PATH)
+    Dim s As String = ""
+    Do
+        propertyCount += 1
+        s = sr.ReadLine()
+    Loop Until s Is Nothing
+
+    Return propertyCount
+End Function 'GetPropertyCountFromFile
+
+Private Sub HandleSpecificSoapError(ByVal ex As SoapException)
+    If ex.Detail("ErrorCode").InnerXml = "rsMissingElement" Then
+        Console.WriteLine("An error occured in communicating with the server. " & _
+            "You may have attempted to delete a read-only server property.")
+    ElseIf ex.Detail("ErrorCode").InnerXml = "rsElementTypeMismatch" Then
+        Console.WriteLine("An error occured in communicating with the server. " & _
+            "You may have set an unsupported value for a property:")
+        Console.WriteLine(ex.Detail("Message").InnerXml)
+    Else
+        Console.WriteLine(("An error occured trying to communicate with the report server: " + ex.Detail.InnerXml))
+    End If
+End Sub
+
+

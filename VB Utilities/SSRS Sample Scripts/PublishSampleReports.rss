@@ -1,0 +1,134 @@
+'=============================================================================
+'  File:      PublishSampleReports.rss
+'
+'  Summary:  Demonstrates a script that can be used with RS.exe to 
+'	     publish the sample reports that ship with Reporting Services.
+'
+'---------------------------------------------------------------------
+' This file is part of Microsoft SQL Server Code Samples.
+'
+'  Copyright (C) Microsoft Corporation.  All rights reserved.
+'
+' This source code is intended only as a supplement to Microsoft
+' Development Tools and/or on-line documentation.  See these other
+' materials for detailed information regarding Microsoft code samples.
+'
+' THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+' KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+' IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+' PARTICULAR PURPOSE.
+'=============================================================================
+'
+' 1.0 Documentation
+'
+' Read the following in order to familiarize yourself with the sample script.
+' 
+' 1.1 Overview
+'
+' This sample script uses a script file (.rss) and the script environment to run 
+' Web service operations on a specified report server. The script creates a folder 
+' that you specify as a command-prompt variable using the –v switch, and then 
+' publishes the sample reports that ship with Reporting Services to a report server.
+' Depending on the location of your sample reports, you may need to modify the 
+' value of the filePath variable, which references the path to your sample reports.
+' 
+' 1.2 Script Variables
+'
+' Variables that are passed on the command line with the -v switch:
+'
+' (a) parentFolder - corresponds to the folder that the script creates and uses 
+'     to contain your published reports
+'
+' 1.3 Sample Command Lines
+' 
+' 
+' 1.3.1 Use the script to publish the sample reports to an AdventureWorks Sample Reports folder.
+' 
+'       rs -i PublishSampleReports.rss -s http://myserver/reportserver
+'
+
+Dim definition As [Byte]() = Nothing
+Dim warnings As Warning() = Nothing
+Dim parentFolder As String = "AdventureWorks Sample Reports"
+Dim parentPath As String = "/" + parentFolder
+Dim filePath As String = "C:\Program Files\Microsoft SQL Server\100\Samples\Reporting Services\Report Samples\AdventureWorks Sample Reports\"
+
+Public Sub Main()
+
+    rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+    
+    'Create the parent folder
+    Try
+        rs.CreateFolder(parentFolder, "/", Nothing)
+        Console.WriteLine("Parent folder {0} created successfully", parentFolder)
+    Catch e As Exception
+        Console.WriteLine(e.Message)
+    End Try
+
+    'Create the AdventureWorks shared data source
+    CreateSampleDataSource("AdventureWorks", "SQL", "data source=(local);initial catalog=AdventureWorks")
+    CreateSampleDataSource("AdventureWorksDW", "OLEDB-MD", _
+        "data source=localhost;initial catalog=Adventure Works DW")
+
+    'Publish the sample reports
+    PublishReport("Company Sales")
+    PublishReport("Employee Sales Summary")
+    PublishReport("Product Catalog")
+    PublishReport("Product Line Sales")
+    PublishReport("Sales Order Detail")
+    PublishReport("Territory Sales Drilldown")
+
+End Sub
+
+Public Sub CreateSampleDataSource(name As String, extension As String, connectionString As String)
+    'Define the data source definition.
+    Dim definition As New DataSourceDefinition()
+    definition.CredentialRetrieval = CredentialRetrievalEnum.Integrated
+    definition.ConnectString = connectionString
+    definition.Enabled = True
+    definition.EnabledSpecified = True
+    definition.Extension = extension
+    definition.ImpersonateUser = False
+    definition.ImpersonateUserSpecified = True
+    'Use the default prompt string.
+    definition.Prompt = Nothing
+    definition.WindowsCredentials = False
+
+Try
+    rs.CreateDataSource(name, parentPath, False, definition, Nothing)
+    Console.WriteLine("Data source {0} created successfully", name)
+
+Catch e As Exception
+    Console.WriteLine(e.Message)
+End Try
+    
+End Sub 
+
+Public Sub PublishReport(ByVal reportName As String)
+    Try
+        Dim stream As FileStream = File.OpenRead(filePath + reportName + ".rdl")
+        definition = New [Byte](stream.Length) {}
+        stream.Read(definition, 0, CInt(stream.Length))
+        stream.Close()
+
+    Catch e As IOException
+        Console.WriteLine(e.Message)
+    End Try
+
+    Try
+        warnings = rs.CreateReport(reportName, parentPath, False, definition, Nothing)
+
+        If Not (warnings Is Nothing) Then
+            Dim warning As Warning
+            For Each warning In warnings
+                Console.WriteLine(warning.Message)
+            Next warning
+
+        Else
+            Console.WriteLine("Report: {0} published successfully with no warnings", reportName)
+        End If
+
+    Catch e As Exception
+        Console.WriteLine(e.Message)
+    End Try
+End Sub 

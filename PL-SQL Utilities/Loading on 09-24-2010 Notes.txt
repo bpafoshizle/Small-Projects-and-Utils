@@ -1,0 +1,211 @@
+-rw-r-----   1 odsmaint staff       4518968 Sep 24 14:58 ods_invoice_detail.dat
+-rw-r-----   1 odsmaint staff       1513892 Sep 24 14:58 ods_invoice_detail_amt_orig.dat
+-rw-r-----   1 odsmaint staff            66 Sep 24 14:58 ods_invoice_detail_amt_orig_load.valid
+-rw-r-----   1 odsmaint staff            66 Sep 24 14:58 ods_invoice_detail_load.valid
+-rw-r-----   1 odsmaint staff       1234585 Sep 24 14:58 ods_invoice_header.dat
+-rw-r-----   1 odsmaint staff            66 Sep 24 14:58 ods_invoice_header_load.valid
+odsmaint@dbqtsn1:/usr/dw/tds/loads $
+
+/usr/dw/nonsap/db_files/ods_invoice_detail.dat
+
+Invoice Detail: 14183
+Invoice Amount Orig: 14183
+Invoice Header: 2183
+
+select max(load_timestamp) from invoice_detail_temp;
+select count(*) from invoice_detail_temp;
+select * from invoice_detail_temp;
+select max(load_timestamp) from invoice_header_temp;
+select count(*) from invoice_header_temp;
+select max(load_timestamp) from invoice_amount_original_temp;
+select count(*) from invoice_amount_original_temp;
+select count(*) from invoice_detail id where id.load_timestamp > '24-SEP-10';
+select count(*) from invoice_header ih where ih.load_timestamp > '24-SEP-10';
+
+select count(*) from 
+(select 
+id.week_ending_date,
+id.sales_order_number,
+id.sales_order_line_number
+from invoice_detail id
+where id.load_timestamp > '24-SEP-10'
+minus
+select
+idt.week_ending_date,
+idt.sales_order_number,
+idt.sales_order_line_number
+from invoice_detail_temp idt);
+
+
+********************************************************************
+odsmaint@dbqtsn1:/usr/dw/sap/db_files $ ls -l | grep CE1
+-rw-r-----   1 odsmaint staff      24262030 Sep 27 08:43 CE1TYSN_FACT.DAT
+-rw-r-----   1 odsmaint staff            69 Sep 27 08:43 CE1TYSN_FACT.VALID
+
+
+odsmaint@dbqtsn1:/usr/dw/sap/db_files $ wc CE1TYSN_FACT.DAT
+   12545 1359725 24262030 CE1TYSN_FACT.DAT
+
+   
+Kelly loaded (16,000) and those are now figured in with mine based on load_date (which is actually mod_date) being > 27-SEP-10 now that I have run that load several times causing it to update those 16k records and change the load_date.
+CE1TYSN_FACT.DAT: 12545
+TOTAL MODDED: 28545
+
+TDS_OWNER.CE1TYSN: 40439062 - > 40451607 (difference of 12545)
+
+TDS_OWNER.CE1TYSN_WRK: 12545
+
+
+Ce1 Adjustments Processed (Q)        - 15737
+----- Ce1 Restated_Product_Key     Error (U)   - 263
+
+----- Invoice_Attributes Inserts         - 15737
+
+select count(*)
+from tds_owner.accrual_adjustment aa
+where aa.load_adjustment_date >= '27-SEP-10';
+New rows in ACCRUAL_ADJUSTMENTS: 15737
+
+Accrual Adjustment Extracted (without date range): 
+---- v_FileDir       - SQL_TDS_DB_FILES
+---- v_FileName      - accrual_adjustment_load.dat
+---- v_DebugLevel    - 0
+---- v_Load_Validation:
+---- Load_Day_Key    - 828410
+---- Load_Time_Key   - 42416
+---- Process Name    - ACCRUAL_ADJUSTMENT
+---- Strip_Load_Flag - S
+---- Amount      - 15737
+>>  accrual_adjustment_load.valid File is open to replace
+---- load file count   - 15737
+
+Accrual Adjustment Extracted and loaded by script (with date range 18-SEP-10 - 02-OCT-10): 
+>>>>>>>>  pr_Validate_Load_Counts  <<<<<<<
+---- v_Strip_Load_Flag        - L
+---- v_Strip_Load_Day_Secs    - 2010092752440
+---- v_Load_Load_Day_Secs     - 2010092752440
+---- v_Recycle_Load_Day_Secs  - 2010092752440
+---- v_Error_Load_Day_Secs    - 2010092752440
+---- v_Strip_Amount       - 15847
+---- v_Load_Amount        - 15847
+---- v_Recycle_Amount       - 0
+---- v_Error_Amount       - 0
+
+
+Accrual Adjustments actually into TDW: 15737
+select count(*) from TDW_OWNER.accrual_adjustment aa
+where aa.load_adjustment_date = '27-SEP-10';
+
+Interco processed: >>  interco_sales.valid File is open to replace
+---- load file count   - 1
+-- v_record_count: 1
+
+Interco to TDW 
+---- v_Rowcount     -  352
+
+export tds_db_files="/usr/dw/tds/db_files"
+
+'SQL_TDS_DB_FILES','invoice_fact_ext.dat'
+
+*************************************************************************
+----- Ce1 Accruals    Processed (P)        - 13745
+----- Ce1 Adjustments Processed (Q)        - 0
+----- Total Ce1 Updated            - 59837
+--
+----- Ce1 WEEK_KEY       Error (A)   - 0
+----- Ce1 Restated_Product_Key     Error (U)   - 0
+----- Ce1 Restated_Market_Key    Error (M)   - 0
+----- Ce1 Non_Restated_Product_Key Error (K)   - 0
+----- Ce1 Non_Restated_Market_Key  Error (L)   - 0
+----- Invoice Override Product Key Error (V)   - 0
+----- Invoice Override Market Key  Error (H)   - 0
+----- Ce1 Billable Pallets     Error (W)   - 0
+--
+----- Accrual_Adjustment Rows Inserted         - 13745
+----- Accrual_Adjustment Rows Updated        - 0
+--
+----- Invoice_Attributes Errors          - 0
+----- Invoice_Attributes Inserts         - 0
+----- Invoice_Attributes Updates         - 13745
+--
+----- Inter Compamy Sales Insert         - 0
+--
+----- Market Overrides Created           - 1132
+----- Product Overrides Created          - 305
+--
+----- Total Committed            - 13745
+======================================================================
+Procedure pr_CallStatsEnd Statistics
+STARTED   :  28-SEP-2010 16:22:02
+---- v_activity_key -  560733
+---- v_Rowcount     -  13745
+---- v_Status     -  C
+---- v_End_Time     -  28-SEP-2010 16:22:02
+---- v_DebugLevel   -  0
+
+select count(*)
+from tds_owner.accrual_adjustment aa
+where aa.load_accrual_date >= '28-SEP-10'; -- 13745
+
+-  Extracting by week for the following criteria
+--    v_Beg_Week_Key         - 5590
+--    v_End_Week_Key         - 5590
+--
+----------------------------------------------------------------
+---- v_FileDir       - SQL_TDS_DB_FILES
+---- v_FileName      - accrual_adjustment_load.dat
+---- v_DebugLevel    - 0
+---- v_Load_Validation:
+---- Load_Day_Key    - 828411
+---- Load_Time_Key   - 60230
+---- Process Name    - ACCRUAL_ADJUSTMENT
+---- Strip_Load_Flag - S
+---- Amount      - 13746
+>>  accrual_adjustment_load.valid File is open to replace
+---- load file count   - 13746
+----------------------------------------------------------------
+--
+-- v_record_count: 13746
+--
+----------------------------------------------------------------
+Procedure pr_CallStatsEnd Statistics
+STARTED   :  28-SEP-2010 16:44:12
+---- v_activity_key -  560735
+---- v_Rowcount     -  13746
+---- v_Status     -  C
+---- v_End_Time     -  28-SEP-2010 16:44:12
+---- v_DebugLevel   -  0
+
+---- v_Load_Validation.Process_Name    - ACCRUAL_ADJUSTMENT
+---- v_Load_Validation.Strip_Load_Flag - L
+---- v_Load_Validation.Amount        - 13746
+---- v_Load_Validation.Load_Day_Key    - 828411
+---- v_Load_Validation.Load_Time_Key   - 60378
+----
+---- Load_Validation_Data.pr_Validate_Load_Counts parameters passed in:
+---- p_Process_Name    - ACCRUAL_ADJUSTMENT
+---- p_Strip_Load_Flag - L
+---- p_DebugLevel      - 0
+>>>>>>>>  pr_Validate_Load_Counts  <<<<<<<
+---- v_Strip_Load_Flag        - L
+---- v_Strip_Load_Day_Secs    - 2010092860376
+---- v_Load_Load_Day_Secs     - 2010092860378
+---- v_Recycle_Load_Day_Secs  - 2010092860378
+---- v_Error_Load_Day_Secs    - 2010092860378
+---- v_Strip_Amount       - 13746
+---- v_Load_Amount        - 13746
+---- v_Recycle_Amount       - 0
+---- v_Error_Amount       - 0
+Procedure pr_CallStatsEnd Statistics
+STARTED   :  28-SEP-2010 16:46:39
+---- v_activity_key -  229030
+---- v_Rowcount     -  13746
+---- v_Status     -  C
+---- v_End_Time     -  28-SEP-2010 16:46:39
+---- v_DebugLevel   -  0
+Package        - ACCRUAL_ADJUSTMENT_TDW
+Process        - pr_Load_Process
+Debug level    - 0
+End time       - 28-SEP-10 16:46:39
+
+

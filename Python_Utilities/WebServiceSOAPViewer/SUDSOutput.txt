@@ -1,0 +1,132 @@
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:sending to (http://412-0100:8080/ReportServer_ISDEV/ReportService2005.asmx)
+message:
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+DEBUG:suds.client:headers = {'SOAPAction': u'"http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices/FireEvent"', 'Content-Type': 'text/xml'}
+ERROR:suds.client:<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:ns0="http://schemas.microsoft.com/sqlserver/2005/06/30/reporting/reportingservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns0:FireEvent>
+         <ns0:EventType>TimedSubscription</ns0:EventType>
+         <ns0:EventData>8F499BEB-5B8D-43E8-8C30-D7BFBC53416C</ns0:EventData>
+      </ns0:FireEvent>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

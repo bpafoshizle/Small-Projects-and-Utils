@@ -1,0 +1,1 @@
+appdba.user_priv_action.sp_truncate('TDS_OWNER','BSID')

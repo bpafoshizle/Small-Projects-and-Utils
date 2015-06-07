@@ -1,0 +1,1 @@
+substr(parms,instr(parms,':',1,1)+1,instr(parms,':',1,2)-instr(parms,':',1,1)-1) as parm1

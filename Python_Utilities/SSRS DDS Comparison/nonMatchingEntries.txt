@@ -1,0 +1,6 @@
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S002NQR328', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'MP')
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S008NQR333', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'QP')
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S014NQR331', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'YP')
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S005NQR329', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'MB')
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S011NQR334', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'QB')
+('4|Biscuits|Sales', 'FINSQ1CFS', 'S017NQR332', '\\\\tyson.com\\tysondata\\whq\\app_data\\InternalSalesReporting\\Financials\\Reports\\Monday\\Biscuits', 'PDF', 'Overwrite', 'TRUE', 'svc-financials', 'rpt*@1S2V01C!int', 'YB')

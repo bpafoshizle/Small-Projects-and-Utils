@@ -1,0 +1,511 @@
+ SELECT "T0"."C0" "C0"         ,
+  "T0"."C1" "C1"               ,
+  "T0"."C2" "C2"               ,
+  "T0"."C3" "C3"               ,
+  "T0"."C4" "C4"               ,
+  "T0"."C5" "C5"               ,
+  "T0"."C6" "C6"               ,
+  "T0"."C7" "C7"               ,
+  "T0"."C8" "C8"               ,
+  "T0"."C9" "C9"               ,
+  "T0"."C10" "C10"             ,
+  "T0"."C11" "C11"             ,
+  "T0"."C12" "C12"             ,
+  "T0"."C13" "C13"             ,
+  "T0"."C14" "C14"             ,
+  "T0"."C15" "C15"             ,
+  "T0"."C16" "C16"             ,
+  "T0"."C17" "C17"             ,
+  "T0"."C18" "C18"             ,
+  "T0"."C19" "C19"             ,
+  "T0"."C20" "C20"             ,
+  "T0"."C21" "C21"             ,
+  "T0"."C22" "C22"             ,
+  "T0"."C23" "C23"             ,
+  "T0"."C24" "C24"             ,
+  "T0"."C25" "C25"             ,
+  "T0"."C26" "C26"             ,
+  "T0"."C27" "C27"             ,
+  "T0"."C28" "C28"             ,
+  "T0"."C29" "C29"             ,
+  "T0"."C30" "C30"             ,
+  "T0"."C31" "C31"             ,
+  "T0"."C32" "C32"             ,
+  "T0"."C33" "C33"             ,
+  "T0"."C34" "C34"             ,
+  "T0"."C35" "C35"             ,
+  "T0"."C36" "C36"             ,
+  "T0"."C37" "C37"             ,
+  "T0"."C38" "C38"             ,
+  "T0"."C39" "C39"             ,
+  "T0"."C40" "C40"             ,
+  "T0"."C41" "C41"             ,
+  "T0"."C42" "C42"             ,
+  "T0"."C43" "C43"             ,
+  "T0"."C44" "C44"             ,
+  SUM("T0"."C3") over () "C45" ,
+  SUM("T0"."C4") over () "C46" ,
+  SUM("T0"."C6") over () "C47" ,
+  SUM("T0"."C7") over () "C48" ,
+  SUM("T0"."C8") over () "C49" ,
+  SUM("T0"."C9") over () "C50" ,
+  SUM("T0"."C10") over () "C51",
+  SUM("T0"."C11") over () "C52",
+  SUM("T0"."C12") over () "C53",
+  SUM("T0"."C13") over () "C54",
+  SUM("T0"."C14") over () "C55",
+  SUM("T0"."C15") over () "C56",
+  SUM("T0"."C16") over () "C57",
+  SUM("T0"."C17") over () "C58",
+  SUM("T0"."C18") over () "C59",
+  SUM("T0"."C19") over () "C60",
+  SUM("T0"."C20") over () "C61",
+  SUM("T0"."C21") over () "C62",
+  SUM("T0"."C22") over () "C63",
+  SUM("T0"."C23") over () "C64",
+  SUM("T0"."C24") over () "C65",
+  SUM("T0"."C25") over () "C66",
+  SUM("T0"."C26") over () "C67",
+  SUM("T0"."C27") over () "C68",
+  SUM("T0"."C28") over () "C69",
+  SUM("T0"."C29") over () "C70",
+  SUM("T0"."C30") over () "C71",
+  SUM("T0"."C31") over () "C72",
+  SUM("T0"."C32") over () "C73",
+  SUM("T0"."C33") over () "C74",
+  SUM("T0"."C34") over () "C75",
+  SUM("T0"."C35") over () "C76",
+  SUM("T0"."C36") over () "C77",
+  SUM("T0"."C37") over () "C78",
+  SUM("T0"."C38") over () "C79",
+  SUM("T0"."C39") over () "C80",
+  SUM("T0"."C40") over () "C81",
+  SUM("T0"."C41") over () "C82",
+  SUM("T0"."C42") over () "C83",
+  SUM("T0"."C43") over () "C84",
+  SUM("T0"."C22") over ()/NULLIF(SUM("T0"."C4") over (), 0) "C85"
+   FROM
+  (SELECT "RESTATED_MARKET"."DIVISION_CODE" "C0"   ,
+    TO_CHAR("RESTATED_PRODUCT"."PRODUCT_CODE") "C1",
+    TO_CHAR("RESTATED_PRODUCT"."BRAND_CODE") "C2"  ,
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 2
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C3",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C4",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'ALLOWANCES/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C5",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C6",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'OFF INVOICE DISCOUNT (CORP)'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C7",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'OFF INVOICE DISCOUNT (FL)'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C8",
+    SUM((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C9",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'BILLBACK'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C10",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF SLOTTING'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C11",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'REGULAR COOP'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C12",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'SPECIAL COOP'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C13",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'SAMS UPCHARGE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C14",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'AD-HOC PROGRAMS'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C15",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF R/A ACCRUALS'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C16",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CUSTOMER PRICING INCENTIVES (CORPORATE)'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C17",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CUSTOMER PRICING INCENTIVES (FRONTLINE)'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C18",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CONSUMER COUPONS'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C19",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CUSTOMER GROWTH INCENTIVES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C20",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'GUARANTEED PROGRAM PAYMENTS'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C21",
+    SUM(((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C22",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'ADVERTISING'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C23",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CORPORATE MARKETING'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C24",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'DIVISION ADVERTISING'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C25",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF DEMOS'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C26",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF SALES RELATED EXP.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C27",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF PROFESSIONAL SERVICES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C28",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF PRODUCT RELATED EXP'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C29",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF GENERAL'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C30",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'MDF SALES MARKETING EXP.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C31",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'BROKERAGE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C32",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'SAMPLES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C33",
+    SUM((((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'ADVERTISING, MDF & BROKERAGE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'SAMPLES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C34",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'INVENTORY COST OF SALE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C35",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'HEDGING RESULT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C36",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'CUSTOMER FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C37",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'SHUTTLE FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C38",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'OUTSIDE FREEZER'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C39",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_1_DESCR"
+      , 'TYSON FREEZER'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C40",
+    SUM(((((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'ADVERTISING, MDF & BROKERAGE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'SAMPLES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'INVENTORY COST OF SALE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'CUSTOMER FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'SHUTTLE FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'FREEZER CHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C41",
+    SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'SG&A'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C42",
+    SUM((((((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'ADVERTISING, MDF & BROKERAGE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'SAMPLES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'INVENTORY COST OF SALE'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'CUSTOMER FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'SHUTTLE FREIGHT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'FREEZER CHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'SG&A'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) "C43",
+    SUM((((
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'ALLOWANCE/SURCHARGES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_2_DESCR"
+      , 'PRICING ADJUST.'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 'OFF INVOICE DISCOUNT'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ) -
+    decode( "PPDSS_ACCT_DIM"."ACCT_GRP_LEVEL_3_DESCR"
+      , 'TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES'
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ))/NULLIF(SUM(
+    decode( "PPDSS_ACCT_DIM"."ACCT_NUM"
+      , 1
+      , "SALES_EXPENSE_FACT"."EXPENSE_DTL_AMT"
+      , 0
+    ) ), 0) "C44"
+     FROM "TDW_OWNER"."RESTATED_MARKET" "RESTATED_MARKET"          ,
+    "TDW_OWNER"."RESTATED_PRODUCT" "RESTATED_PRODUCT"              ,
+    "SPK_PKT_PRICE_OWNER"."PPDSS_ACCT_DIM" "PPDSS_ACCT_DIM"        ,
+    "SPK_PKT_PRICE_OWNER"."SALES_EXPENSE_FACT" "SALES_EXPENSE_FACT",
+    "TDW_OWNER"."DAY_DIM" "Invoice_DAY_DIM"                        ,
+    "SPK_PKT_PRICE_OWNER"."PPDSS_EXPENSE_PROFILE_DIM" "PPDSS_EXPENSE_PROFILE_DIM"
+    WHERE "RESTATED_MARKET"."DIVISION_CODE"                IN ('020', '021', '101', '102', '103', '112', '137', '141', '802', '805')
+  AND "RESTATED_MARKET"."SELLING_GROUP_CODE"               IN ('119000', '125000')
+  AND "Invoice_DAY_DIM"."MONTH_DESCR"                      IN ('APRFY2008', 'MARFY2008')
+  AND "PPDSS_EXPENSE_PROFILE_DIM"."ESTIMATED_EXPENSE_FLAG" IN ('Y')
+  AND "SALES_EXPENSE_FACT"."PPDSS_ACCT_KEY"                 ="PPDSS_ACCT_DIM"."PPDSS_ACCT_KEY"
+  AND "SALES_EXPENSE_FACT"."REVENUE_INVOICE_DAY_KEY"        ="Invoice_DAY_DIM"."DAY_KEY"
+  AND "SALES_EXPENSE_FACT"."RESTATED_MARKET_KEY"            ="RESTATED_MARKET"."RESTATED_MARKET_KEY"
+  AND "PPDSS_EXPENSE_PROFILE_DIM"."EXPENSE_PROFILE_KEY"     ="SALES_EXPENSE_FACT"."EXPENSE_PROFILE_KEY"
+  AND "SALES_EXPENSE_FACT"."RESTATED_PRODUCT_KEY"           ="RESTATED_PRODUCT"."RESTATED_PRODUCT_KEY"
+ GROUP BY "RESTATED_MARKET"."DIVISION_CODE"   ,
+    TO_CHAR("RESTATED_PRODUCT"."PRODUCT_CODE"),
+    TO_CHAR("RESTATED_PRODUCT"."BRAND_CODE")
+  ) "T0"

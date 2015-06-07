@@ -1,0 +1,7 @@
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\obj\Debug\RefreshExcelReport.csproj.ResolveComReference.cache
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\bin\Debug\RefreshExcelReports.exe
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\bin\Debug\RefreshExcelReports.pdb
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\obj\Debug\RefreshExcelReports.exe
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\obj\Debug\RefreshExcelReports.pdb
+C:\Users\Millerbarr\Documents\Development\TRA\BI\Tyson.BI.IS\RefreshExcelReport\RefreshExcelReports\obj\Debug\RefreshExcelReport.csprojResolveAssemblyReference.cache

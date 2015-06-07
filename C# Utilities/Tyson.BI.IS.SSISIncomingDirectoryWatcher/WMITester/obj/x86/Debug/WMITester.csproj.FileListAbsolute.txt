@@ -1,0 +1,6 @@
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\bin\Debug\WMITester.exe.config
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\bin\Debug\WMITester.exe
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\bin\Debug\WMITester.pdb
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\obj\x86\Debug\WMITester.exe
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\WMITester\obj\x86\Debug\WMITester.pdb

@@ -1,0 +1,12 @@
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\ExecuteSSRSReport.exe.config
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\ExecuteSSRSReport.exe
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\ExecuteSSRSReport.pdb
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\ExecuteSSRSReport.exe
+C:\Documents and Settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\ExecuteSSRSReport.pdb
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\bin\Debug\ExecuteSSRSReport.exe.config
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\obj\x86\Debug\ExecuteSSRSReport.exe
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\obj\x86\Debug\ExecuteSSRSReport.pdb
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\bin\Debug\ExecuteSSRSReport.exe
+C:\Documents and Settings\millerbarr\My Documents\Visual Studio 2010\Projects\ExecuteSSRSReport\ExecuteSSRSReport\bin\Debug\ExecuteSSRSReport.pdb

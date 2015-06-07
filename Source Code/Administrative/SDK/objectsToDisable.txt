@@ -1,0 +1,6 @@
+CAMID("ADS:u:cn=skarsten\, jason,ou=is,ou=groups,ou=general")/folder[@name='My Folders']/folder[@name='temp']/folder[@name='57EEC2A3-00C6-BE09-F79D-6DD126D1944F']/report[@name='(0336) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Last Year']
+CAMID("ADS:u:cn=skarsten\, jason,ou=is,ou=groups,ou=general")/folder[@name='My Folders']/folder[@name='temp']/folder[@name='A1FB6AAF-69BD-2B4A-E9BA-493715EC443D']/report[@name='(0337) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Budget']
+CAMID("ADS:u:cn=skarsten\, jason,ou=is,ou=groups,ou=general")/folder[@name='My Folders']/folder[@name='temp']/folder[@name='FAD1A389-46A1-3AFE-DED5-7188C64745E6']/report[@name='(0337) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Budget']
+CAMID("ADS:u:cn=skarsten\, jason,ou=is,ou=groups,ou=general")/folder[@name='My Folders']/folder[@name='temp']/folder[@name='5FFF0B93-82BB-4F86-5B09-85D8D15500CC']/report[@name='(0337) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Budget']
+CAMID("ADS:u:cn=skarsten\, jason,ou=is,ou=groups,ou=general")/folder[@name='My Folders']/folder[@name='temp']/folder[@name='079986A1-AE58-1225-A2BF-3188734C79C6']/report[@name='(0337) Financial Statement Drill Down - Expense Detail | Current Month vs. Same Month Budget']
+

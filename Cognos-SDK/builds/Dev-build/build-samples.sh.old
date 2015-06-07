@@ -1,0 +1,71 @@
+#!/bin/sh
+#
+#  Copyright 2006 Cognos Incorporated. All Rights Reserved.
+#  Cognos and the Cognos logo are trademarks of Cognos Incorporated.
+#
+# Build the Java samples.
+
+# REMOVE this when you edit this file.
+echo You MUST edit this file before you can compile this application.
+
+
+# *  *  *  *  *  *  *  *
+# CHANGE the following environment variables to point to the
+# Java Development Kit and Cognos 8 on your system.
+# *  *  *  *  *  *  *  *
+
+if [ "$CRN_HOME" = "" ] ; then
+	CRN_HOME=/usr/cognos/c8
+fi
+if [ "$JAVA_HOME" = "" ] ; then
+	JAVA_HOME=/c/j2sdk1.4.2
+fi
+
+JAR_HOME=$JAVA_HOME/lib
+
+JAVAC=$JAVA_HOME/bin/javac
+
+# Build the CLASSPATH required to build the Java samples
+
+CLASSPATH=$JAR_HOME/tools.jar
+for jar in axis axisCognosClient commons-discovery commons-logging \
+	dom4j jaxrpc saaj xalan xml-apis xercesImpl; do
+  CLASSPATH="$CLASSPATH:$CRN_HOME/sdk/java/lib/$jar.jar"
+done
+
+# Compile
+
+$JAVAC -classpath "$CLASSPATH" \
+	CancelExec/*.java \
+	CapabilitiesGUI/*.java \
+	Common/*.java \
+	ContentStoreExplorer/*.java \
+	CreateDrillThrough/*.java \
+	DeployPackage/*.java \
+	DispatcherControl/*.java \
+	ReportCopyMove/*.java \
+	EventTrigger/*.java \
+	ExecReports/*.java \
+	ExecReportsAt/*.java \
+	GroupsAndRolesGUI/*.java \
+	HandlersCS/*.java \
+	PermissionsGUI/*.java \
+	PrintReport/*.java \
+	QueryCM/*.java \
+	RenderReport/*.java \
+	ReportAdd/*.java \
+	ReportCreate/*.java \
+	ReportDelete/*.java \
+	ReportParams/*.java \
+	ReportSpec/*.java \
+	ReportUpgrade/*.java \
+	runreport/*.java \
+	SaveAs/*.java \
+	Scheduler/*.java \
+	Security/*.java \
+	SendEmail/*.java \
+	Submit/*.java \
+	TesterCM/*.java \
+	ViewAll/*.java \
+	ViewCMReports/*.java \
+	ViewCMPackages/*.java

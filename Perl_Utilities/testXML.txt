@@ -1,0 +1,166 @@
+<querySubject status="valid">
+<name locale="en">Waterfall Top Level Columns</name>
+<lastChanged>2006-03-01T11:33:56</lastChanged>
+<definition>
+<modelQuery>
+<sql type="cognos">select 
+       case PPDSS_ACCT_DIM.ACCT_NUM
+         when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Gross_Sales,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Allowances__Surcharges,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Pricing_Adjustments,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Off_Invoice_Discount,
+       ((case PPDSS_ACCT_DIM.ACCT_NUM
+  when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end)  as  Pocket_Price_Net_Receivables,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  c6,
+       (((case PPDSS_ACCT_DIM.ACCT_NUM
+  when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end)  as  Pocket_Price_Net_Sales,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;ADVERTISING, MDF &amp; BROKERAGE&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Advertising__MDF___Brokerage,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;SAMPLES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Samples,
+       ((((case PPDSS_ACCT_DIM.ACCT_NUM
+  when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;ADVERTISING, MDF &amp; BROKERAGE&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;SAMPLES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end)  as  Pocket_Price_Gross_Margin,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;POCKET PRICE COST OF GOODS&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Pocket_Price_Cost_of_Goods,
+       (((((case PPDSS_ACCT_DIM.ACCT_NUM
+  when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;ADVERTISING, MDF &amp; BROKERAGE&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;SAMPLES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;POCKET PRICE COST OF GOODS&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end)  as  c12,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+         when &apos;SG&amp;A&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  S_G_A,
+       ((((((case PPDSS_ACCT_DIM.ACCT_NUM
+  when 1 then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;ALLOWANCE/SURCHARGES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_2_DESCR
+  when &apos;PRICING ADJUST.&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;OFF INVOICE DISCOUNT&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;ADVERTISING, MDF &amp; BROKERAGE&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  when &apos;SAMPLES&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;POCKET PRICE COST OF GOODS&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end) - case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_3_DESCR
+  when &apos;SG&amp;A&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+  else 0
+end)  as  Pocket_Price_Ebit,
+       case PPDSS_ACCT_DIM.ACCT_GRP_LEVEL_1_DESCR
+         when &apos;Undefined&apos; then SALES_EXPENSE_FACT.EXPENSE_DTL_AMT
+         else 0
+       end  as  Undefined,
+       SALES_EXPENSE_FACT.PPDSS_SALES_ORDER_LINE_KEY  as  PPDSS_SALES_ORDER_LINE_KEY,
+       SALES_EXPENSE_FACT.PPDSS_ACCT_KEY  as  PPDSS_ACCT_KEY,
+       SALES_EXPENSE_FACT.OVERRIDE_PRODUCT_KEY  as  OVERRIDE_PRODUCT_KEY,
+       SALES_EXPENSE_FACT.OVERRIDE_MARKET_KEY  as  OVERRIDE_MARKET_KEY,
+       SALES_EXPENSE_FACT.EXPENSE_PROFILE_KEY  as  EXPENSE_PROFILE_KEY,
+       SALES_EXPENSE_FACT.RESTATED_PRODUCT_KEY  as  RESTATED_PRODUCT_KEY
+ from 
+       [POCKET_PRICE1].PPDSS_ACCT_DIM PPDSS_ACCT_DIM,
+       [POCKET_PRICE1].SALES_EXPENSE_FACT SALES_EXPENSE_FACT
+ where 
+       (SALES_EXPENSE_FACT.PPDSS_ACCT_KEY = PPDSS_ACCT_DIM.PPDSS_ACCT_KEY)</sql>
+
+<filters/>
+</modelQuery>
+</definition>
+<externalizeMethod>iqd</externalizeMethod>
+<queryItem>
+<name locale="en">TTL Customer Product Charges and Allowances</name>
+<lastChanged>2005-04-11T17:01:04</lastChanged>
+<expression>case <refobj>[Database].[PPDSS_ACCT_DIM].[ACCT_GRP_LEVEL_3_DESCR]</refobj> when &apos;TTL CUSTOMER PRODUCT CHARGES AND ALLOWANCES&apos; then (<refobj>[Database].[SALES_EXPENSE_FACT].[EXPENSE_DTL_AMT]</refobj>)  else 0 end</expression>
+<usage>fact</usage>
+<format>&amp;lt;formatGroup&amp;gt;&amp;lt;currencyFormat xml:lang=&amp;quot;en-us&amp;quot; groupDelimiter=&amp;quot;,&amp;quot; decimalSize=&amp;quot;2&amp;quot; currencyCode=&amp;quot;USD&amp;quot; useGrouping=&amp;quot;true&amp;quot; decimalDelimiter=&amp;quot;.&amp;quot; /&amp;gt;&amp;lt;/formatGroup&amp;gt;</format>
+<currency>USD</currency>
+<datatype>float64</datatype>
+<precision>0</precision>
+<scale>0</scale>
+<size>8</size>
+<nullable>true</nullable>
+<regularAggregate>automatic</regularAggregate>
+<semiAggregate>automatic</semiAggregate>
+</queryItem>
+</querySubject>

@@ -1,0 +1,10 @@
+<Synchronize xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Source>
+    <ConnectionString>Provider=MSOLAP.4;Data Source=WHQWSSAS01;ConnectTo=10.0;Integrated Security=SSPI;Initial Catalog=Tyson Retail Analytics</ConnectionString>
+    <Object>
+      <DatabaseID>Tyson Retail Analytics</DatabaseID>
+    </Object>
+  </Source>
+  <SynchronizeSecurity>CopyAll</SynchronizeSecurity>
+  <ApplyCompression>true</ApplyCompression>
+</Synchronize>

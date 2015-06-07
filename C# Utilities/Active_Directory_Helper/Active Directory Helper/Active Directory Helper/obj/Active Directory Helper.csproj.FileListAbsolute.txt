@@ -1,0 +1,8 @@
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\bin\Debug\Active Directory Helper.exe
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\bin\Debug\Active Directory Helper.pdb
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\Active_Directory_Helper.Form1.resources
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\Active_Directory_Helper.Properties.Resources.resources
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\Active Directory Helper.csproj.GenerateResource.Cache
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\Active Directory Helper.exe
+C:\Documents and Settings\gabelj\My Documents\Visual Studio 2005\Projects\My Projects\Active Directory Helper\Active Directory Helper\obj\Debug\Active Directory Helper.pdb

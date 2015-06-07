@@ -1,0 +1,1 @@
+sp_msforeachdb "SELECT '?' DatabaseName, name FROM ?.sys.tables WHERE name LIKE '%TRAIT%'"

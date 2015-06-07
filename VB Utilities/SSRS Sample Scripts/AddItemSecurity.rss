@@ -1,0 +1,123 @@
+'=============================================================================
+'  File:     AddItemSecurity.rss
+'
+'  Summary:  Demonstrates a script that can be used with RS.exe to 
+'	     set security on an item in Reporting Services.
+'
+'---------------------------------------------------------------------
+' THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+' KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+' IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+' PARTICULAR PURPOSE.
+'============================================================================*/
+'
+' 1.0 Documentation
+'
+' Read the following in order to familiarize yourself with the sample script.
+' 
+' 1.1 Overview
+'
+' The following sample script can be used to add a security policy for a nested 
+' folder or report which automatically gives the user permissions up the namespace tree. 
+' After using this script, the item is immediately accessible to the user. 
+' In addition, you can use this script to keep or delete the current set of policies 
+' for the item, including the inherited ones. 
+' 
+' 1.2 Script Variables
+'
+' Variables that are passed on the command line with the -v switch:
+'
+' (a) userName - the name of the user for which to add a policy.
+'
+' (b) roleName - the name of the role to apply for the user 
+'     (i.e. Browser, Content Manager).
+'
+' (c) itemPath - the path of the item for which you want to add the policy 
+'     (i.e. /SampleReports)
+'
+' (d) keepCurrentPolicy - whether to keep the current policy and add the new one
+' 
+' 1.3 Sample Command Lines
+' 
+' 
+' 1.3.1 Apply security for a new user and keep the inherited policy.
+' 
+'       rs -i AddItemSecurity.rss -s http://localhost/reportserver -v userName="MyTestUser" 
+'       -v roleName="Browser" -v itemPath="/AdventureWorks Sample Reports" 
+'       -v keepCurrentPolicy="True"
+'
+Public Sub Main()
+   rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+   
+   Dim isRoot As Boolean = False
+   Dim inheritParent As Boolean
+   Dim policies() As Policy
+   Dim newPolicies() As Policy
+   Dim policy As New Policy()
+   Dim roles(0) As Role
+   roles(0) = New Role()
+   roles(0).Name = roleName
+   policy.Roles = roles
+   policy.GroupUserName = userName
+   
+   While Not isRoot
+      ' Once the root of the catalog is reached,
+      ' stop applying policies
+      If itemPath = "/" Then
+         isRoot = True
+      End If 
+      policies = rs.GetPolicies(itemPath, inheritParent)
+         
+      ' If the user selects not to keep inherited or current policy,
+      ' empty the policy
+      If Not keepCurrentPolicy = "True" Then
+         policies = Nothing
+      End If 
+      newPolicies = AddNewPolicy(policy, policies)
+      rs.SetPolicies(itemPath, newPolicies)
+      itemPath = GetParentPath(itemPath)
+   End While
+   Console.WriteLine("Policy successfully set.")
+End Sub 'Main
+   
+
+' Method to parse the path of an item and retrieve 
+' the parent path of an item
+Private Function GetParentPath(currentPath As String) As String
+   Dim delimiter As String = "/"
+   Dim rx As New System.Text.RegularExpressions.Regex(delimiter)
+   Dim childPath As String() = rx.Split(currentPath)
+   
+   Dim parentLength As Integer = childPath.Length - 1
+   Dim parentPath(parentLength) As String
+   
+   Dim i As Integer
+   For i = 0 To parentLength - 1
+      parentPath(i) = childPath(i)
+   Next i 
+   If parentPath.Length = 1 Then
+      Return "/"
+   Else
+      Return String.Join("/", parentPath)
+   End If
+End Function 'GetParentPath
+   
+' Takes the policy to add and applies it to the current set
+' of policies if applicable
+Private Function AddNewPolicy(policyToAdd As Policy, policies() As Policy) As Policy()
+   If Not (policies Is Nothing) Then
+      Dim policy As Policy
+      For Each policy In  policies
+         If policy.GroupUserName = policyToAdd.GroupUserName Then
+            Throw New Exception("The supplied User policy already exists for the item.")
+         End If
+      Next policy 
+      Dim list As New System.Collections.ArrayList(policies)
+      list.Add(policyToAdd)
+      Return CType(list.ToArray(GetType(Policy)), Policy())
+   Else
+      policies = New Policy(0) {}
+      policies(0) = policyToAdd
+      Return policies
+   End If
+End Function 'AddNewPolicy

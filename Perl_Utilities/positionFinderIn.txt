@@ -1,0 +1,3 @@
+if([q_Main].[Fiscal Year] < ParamValue('p_Year'))
+then ('Prior Year ')
+else ('Current Year')

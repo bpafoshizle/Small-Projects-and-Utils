@@ -1,0 +1,112 @@
+<report xmlns="http://developer.cognos.com/schemas/report/4.0/" expressionLocale="en-us"><!--RSU-SPC-0093 The report specification was upgraded from &quot;http://developer.cognos.com/schemas/report/3.0/&quot; to &quot;http://developer.cognos.com/schemas/report/4.0/&quot; at 2009-2-9. 13:5:41--><!--RS:8.2-->
+	<modelPath>/content/package[@name='Business Intelligence Dashboard']/model[@name='2008-12-24T19:16:22.199Z']</modelPath>
+	<layouts>
+		<layout>
+			<reportPages>
+				<page name="Page0">
+					<pageBody>
+						<contents><textItem><dataSource><staticValue>Top Users  </staticValue></dataSource><style><CSS value="font-weight:bold;font-size:12pt"/></style></textItem><textItem><dataSource><reportExpression>ParamDisplayValue('p_timeframe')</reportExpression></dataSource><style><CSS value="font-size:12pt;font-weight:bold"/></style></textItem><list name="List1" refQuery="q_Main">
+								
+								
+								
+								<style>
+									<CSS value="border-collapse:collapse"/>
+								<defaultStyles><defaultStyle refStyle="ls"/></defaultStyles></style>
+							<listColumns><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="UserTotalRuns"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="UserTotalRuns"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="User name"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><bookmark>
+													<dataSource>
+														<reportExpression>[q_Main].[User name] + 'back'</reportExpression></dataSource>
+												</bookmark>
+												<textItem><dataSource><dataItemValue refDataItem="User name"/></dataSource><reportDrills><reportDrill name="Drill Through1"><drillLabel><dataSource><staticValue/></dataSource></drillLabel><bookmarkRef><dataSource><dataItemValue refDataItem="User name"/></dataSource></bookmarkRef></reportDrill></reportDrills><style><defaultStyles><defaultStyle refStyle="hy"/></defaultStyles></style></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Environment"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Environment"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn></listColumns><sortList><sortItem refDataItem="UserTotalRuns" sortOrder="descending"/></sortList></list>
+						</contents>
+					<style><defaultStyles><defaultStyle refStyle="pb"/></defaultStyles></style></pageBody>
+				<style><defaultStyles><defaultStyle refStyle="pg"/></defaultStyles></style></page>
+				<page name="Page1">
+					<pageBody>
+						<contents><table><tableRows><tableRow><tableCells><tableCell><contents><textItem><dataSource><staticValue>What Users Are Running</staticValue></dataSource><style><CSS value="font-family:Arial;font-size:12pt;font-weight:bold"/></style></textItem></contents><style><CSS value="border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/></style></tableCell></tableCells></tableRow></tableRows><style><CSS value="border-collapse:collapse;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/><defaultStyles><defaultStyle refStyle="tb"/></defaultStyles></style></table><textItem><dataSource><reportExpression>ParamDisplayValue('p_timeframe')</reportExpression></dataSource><style><CSS value="font-weight:bold"/></style></textItem>
+						<table><tableRows><tableRow><tableCells><tableCell><contents/><style><CSS value="border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/></style></tableCell></tableCells></tableRow><tableRow><tableCells><tableCell><contents/><style><CSS value="border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/></style></tableCell></tableCells></tableRow></tableRows><style><CSS value="border-collapse:collapse;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/><defaultStyles><defaultStyle refStyle="tb"/></defaultStyles></style></table><list name="List2" refQuery="q_Main">
+								
+								
+								
+								<style>
+									<CSS value="border-collapse:collapse"/>
+								<defaultStyles><defaultStyle refStyle="ls"/></defaultStyles></style>
+							<listColumns><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="User name"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><bookmark>
+													<dataSource>
+														<dataItemValue refDataItem="User name"/></dataSource>
+												</bookmark>
+												<textItem><dataSource><dataItemValue refDataItem="User name"/></dataSource><reportDrills><reportDrill name="Drill Through1"><drillLabel><dataSource><staticValue/></dataSource></drillLabel><bookmarkRef><dataSource><reportExpression>[q_Main].[User name] + 'back'</reportExpression></dataSource></bookmarkRef></reportDrill></reportDrills><style><defaultStyles><defaultStyle refStyle="hy"/></defaultStyles></style></textItem></contents><listColumnRowSpan refDataItem="User name"/><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Package"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Package"/></dataSource></textItem></contents><listColumnRowSpan refDataItem="Package"/><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Report name"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Report name"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Report type"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Report type"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Time stamp"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Time stamp"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn><listColumn><listColumnTitle><contents><textItem><dataSource><dataItemLabel refDataItem="Environment"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lt"/></defaultStyles></style></listColumnTitle><listColumnBody><contents><textItem><dataSource><dataItemValue refDataItem="Environment"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="lc"/></defaultStyles></style></listColumnBody></listColumn></listColumns><sortList><sortItem refDataItem="Time stamp" sortOrder="descending"/></sortList><listGroups><listGroup refDataItem="User name"><listFooter><listRows><listRow><rowCells><rowCell colSpan="4"><contents><textItem><dataSource><dataItemValue refDataItem="User name"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="of"/></defaultStyles></style></rowCell><rowCell><contents><textItem><dataSource><dataItemValue refDataItem="Time stamp"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="os"/></defaultStyles></style></rowCell><rowCell><contents/><style><defaultStyles><defaultStyle refStyle="of"/></defaultStyles></style></rowCell></rowCells></listRow></listRows></listFooter></listGroup><listGroup refDataItem="Package"><listFooter><listRows><listRow><rowCells><rowCell colSpan="3"><contents><textItem><dataSource><dataItemValue refDataItem="Package"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="if"/></defaultStyles></style></rowCell><rowCell><contents><textItem><dataSource><dataItemValue refDataItem="Time stamp"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="is"/></defaultStyles></style></rowCell><rowCell><contents/><style><defaultStyles><defaultStyle refStyle="if"/></defaultStyles></style></rowCell></rowCells></listRow></listRows></listFooter></listGroup></listGroups><listOverallGroup><listFooter><listRows><listRow><rowCells><rowCell colSpan="4"><contents><textItem><dataSource><staticValue>Summary</staticValue></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="of"/></defaultStyles></style></rowCell><rowCell><contents><textItem><dataSource><dataItemValue refDataItem="Time stamp"/></dataSource></textItem></contents><style><defaultStyles><defaultStyle refStyle="os"/></defaultStyles></style></rowCell><rowCell><contents/><style><defaultStyles><defaultStyle refStyle="of"/></defaultStyles></style></rowCell></rowCells></listRow></listRows></listFooter></listOverallGroup></list>
+						</contents>
+					<style><defaultStyles><defaultStyle refStyle="pb"/></defaultStyles></style></pageBody>
+				<style><defaultStyles><defaultStyle refStyle="pg"/></defaultStyles></style></page>
+			</reportPages>
+		<promptPages><page name="Prompt Page1">
+					<pageHeader>
+						<contents>
+							<block>
+								<contents>
+									<textItem>
+										<dataSource>
+											<staticValue/>
+										</dataSource>
+									<style><defaultStyles><defaultStyle refStyle="tt"/></defaultStyles></style></textItem>
+								</contents>
+							<style><defaultStyles><defaultStyle refStyle="ta"/></defaultStyles></style></block>
+						</contents>
+					<style><defaultStyles><defaultStyle refStyle="hp"/></defaultStyles></style></pageHeader>
+					<pageBody>
+						<contents>
+						<table><tableRows><tableRow><tableCells><tableCell><contents><textItem><dataSource><staticValue>Time Frame</staticValue></dataSource></textItem></contents><style><CSS value="font-weight:bold;border:0.25pt solid black"/></style></tableCell></tableCells></tableRow><tableRow><tableCells><tableCell><contents><selectValue multiSelect="false" parameter="p_timeframe" range="false" required="true"><selectOptions><selectOption useValue="year"><displayValue>Last Year</displayValue></selectOption><selectOption useValue="6months"><displayValue>Last Six Months</displayValue></selectOption><selectOption useValue="3months"><displayValue>Last Three Months</displayValue></selectOption><selectOption useValue="all"><displayValue>All</displayValue></selectOption></selectOptions></selectValue>
+												</contents><style><CSS value="border-bottom:0.25pt solid black"/></style></tableCell></tableCells></tableRow><tableRow><tableCells><tableCell><contents/><style><CSS value="border:0.25pt solid black"/></style></tableCell></tableCells></tableRow><tableRow><tableCells><tableCell><contents/></tableCell></tableCells></tableRow></tableRows><style><CSS value="border-collapse:collapse;width:25%"/><defaultStyles><defaultStyle refStyle="tb"/></defaultStyles></style></table></contents>
+					<style><defaultStyles><defaultStyle refStyle="py"/></defaultStyles></style></pageBody>
+					<pageFooter>
+						<contents>
+							<promptButton type="cancel">
+								<contents/>
+							<style><defaultStyles><defaultStyle refStyle="bp"/></defaultStyles></style></promptButton>
+							<promptButton type="back">
+								<contents/>
+							<style><defaultStyles><defaultStyle refStyle="bp"/></defaultStyles></style></promptButton>
+							<promptButton type="next">
+								<contents/>
+							<style><defaultStyles><defaultStyle refStyle="bp"/></defaultStyles></style></promptButton>
+							<promptButton type="finish">
+								<contents/>
+							<style><defaultStyles><defaultStyle refStyle="bp"/></defaultStyles></style></promptButton>
+						</contents>
+					<style><defaultStyles><defaultStyle refStyle="fp"/></defaultStyles></style></pageFooter>
+				<style><defaultStyles><defaultStyle refStyle="pp"/></defaultStyles></style></page>
+			</promptPages></layout>
+	</layouts>
+<queries>
+		<query name="q_C8Main"><source><model/></source><selection><dataItem aggregate="none" label="User" name="User name"><expression>[perform.tyson.com].[Run Reports].[User name]</expression></dataItem><dataItem aggregate="none" name="Package"><expression>[perform.tyson.com].[Run Reports].[Package]</expression></dataItem><dataItem aggregate="none" name="Report name"><expression>[perform.tyson.com].[Run Reports].[Report name]</expression></dataItem><dataItem aggregate="none" name="Report type"><expression>[perform.tyson.com].[Run Reports].[Report type]</expression></dataItem><dataItem aggregate="count" label="Run Count" name="Time stamp" rollupAggregate="none" sort="descending"><expression>[perform.tyson.com].[Run Reports].[Time stamp]</expression></dataItem><dataItem aggregate="none" name="Environment" rollupAggregate="none"><expression>'C8'</expression></dataItem><dataItem name="UserTotalRuns"><expression>count([Time stamp] for [User name])</expression></dataItem></selection><detailFilters><detailFilter><filterExpression>CASE ?p_timeframe?
+WHEN '3months' 
+THEN ([perform.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-30))
+WHEN 'year'
+THEN ([perform.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-365))
+WHEN '6months'
+THEN ([perform.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-180))
+ELSE (1=1)
+END</filterExpression></detailFilter></detailFilters></query><query name="q_CRNMain"><source><model/></source><selection><dataItem aggregate="none" label="User" name="User name"><expression>[reports.tyson.com].[Run Reports].[User name]</expression></dataItem><dataItem aggregate="none" name="Package"><expression>[reports.tyson.com].[Run Reports].[Tyson Package]</expression></dataItem><dataItem aggregate="none" name="Report name"><expression>[reports.tyson.com].[Run Reports].[Report name]</expression></dataItem><dataItem aggregate="none" name="Report type"><expression>[reports.tyson.com].[Run Reports].[Report type]</expression></dataItem><dataItem aggregate="count" label="Run Count" name="Time stamp" rollupAggregate="none" sort="descending"><expression>[reports.tyson.com].[Run Reports].[Time stamp]</expression></dataItem><dataItem aggregate="none" name="Environment" rollupAggregate="none"><expression>'1.1'</expression></dataItem><dataItem name="UserTotalRuns"><expression>count([Time stamp] for [User name])</expression></dataItem></selection><detailFilters><detailFilter><filterExpression>CASE ?p_timeframe?
+WHEN '3months' 
+THEN ([reports.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-90))
+WHEN 'year'
+THEN ([reports.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-365))
+WHEN '6months'
+THEN ([reports.tyson.com].[Run Reports].[Time stamp] &gt;= _add_days({sysdate},-180))
+ELSE (1=1)
+END</filterExpression></detailFilter></detailFilters></query><query name="q_Main"><source><queryOperation name="Union1" setOperation="UNION">
+					<queryRefs><queryRef refQuery="q_CRNMain"/><queryRef refQuery="q_C8Main"/></queryRefs>
+					<projectionList autoGenerated="true"><queryItem name="User name"/><queryItem name="Package"/><queryItem name="Report name"/><queryItem name="Report type"/><queryItem name="Time stamp"/><queryItem name="Environment"/><queryItem name="UserTotalRuns"/></projectionList>
+				</queryOperation>
+			</source><selection><dataItem aggregate="none" name="User name"><expression>[Union1].[User name]</expression></dataItem><dataItem aggregate="none" name="Package"><expression>[Union1].[Package]</expression></dataItem><dataItem aggregate="none" name="Report name"><expression>[Union1].[Report name]</expression></dataItem><dataItem aggregate="none" name="Report type"><expression>[Union1].[Report type]</expression></dataItem><dataItem aggregate="none" label="Count" name="Time stamp" rollupAggregate="total"><expression>[Union1].[Time stamp]</expression></dataItem><dataItem aggregate="none" name="Environment"><expression>[Union1].[Environment]</expression></dataItem><dataItem aggregate="none" name="rank"><expression>rank([Time stamp])</expression></dataItem><dataItem aggregate="none" name="UserTotalRuns"><expression>[Union1].[UserTotalRuns]</expression></dataItem></selection></query><query name="Query1">
+			<source>
+				<model/>
+			</source>
+			<selection><dataItem aggregate="none" name="Report name"><expression>[perform.tyson.com].[Run Reports].[Report name]</expression></dataItem><dataItem aggregate="none" name="Report type"><expression>[perform.tyson.com].[Run Reports].[Report type]</expression></dataItem></selection>
+		</query>
+	</queries><reportVariables><reportVariable name="v_Shading" type="string">
+			<reportExpression>IF (mod(RowNumber(),2)=1)
+THEN (0)
+ELSE (1)</reportExpression>
+			<variableValues><variableValue value="0"/><variableValue value="1"/></variableValues></reportVariable>
+	</reportVariables><XMLAttributes><XMLAttribute name="RS_CreateExtendedDataItems" value="false" output="no"/><XMLAttribute name="listSeparator" value="," output="no"/></XMLAttributes></report>

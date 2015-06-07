@@ -1,0 +1,94 @@
+<Batch xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" Transaction="true">
+	<Parallel MaxParallel="0">
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-09</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-08</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-07</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-06</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-05</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-04</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-03</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-02</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+		<Process xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2">
+			<Object>
+				<DatabaseID>Tyson Retail Analytics</DatabaseID>
+				<CubeID>TRA</CubeID>
+				<MeasureGroupID>Alert Fire Group</MeasureGroupID>
+				<PartitionID>ALERT_FIRE_GROUP_WM_2010-01</PartitionID>
+			</Object>
+			<Type>ProcessData</Type>
+			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+		</Process>
+	</Parallel>
+</Batch>

@@ -1,0 +1,31 @@
+' Call from rs.exe in a manner like:
+' rs -i ChangeModAndCreateUsers.rss -s http://localhost/reportserver_ISDEV -v itemPath="/Report Builder Reports/Consume Me" -v newName="TYSONET\\SIKESDR"
+
+Public Sub Main()
+  Dim props(1) AS [Property]
+  Dim propCreatedByID AS New [Property]()
+  Dim propModifiedByID AS New [Property]()
+  
+  propCreatedByID.Name = "CreatedBy"
+  propCreatedByID.Value = newName
+  
+  propModifiedByID.Name = "ModifiedBy"
+  propModifiedByID.Value = newName
+  
+  props(0) = propModifiedByID
+  props(1) = propCreatedByID
+  
+  If itemPath Is Nothing Then
+    Console.WriteLine("Parameter itemPath not specified")
+  Else
+    Try
+	   rs.SetProperties(itemPath, props)
+	   Console.WriteLine("New description set on item {0}.", itemPath)
+
+    Catch ex As SoapException
+	   Console.WriteLine(ex.Detail.OuterXml)
+	   Console.WriteLine(ex.Detail.InnerXml)
+    End Try
+  End If
+
+End Sub

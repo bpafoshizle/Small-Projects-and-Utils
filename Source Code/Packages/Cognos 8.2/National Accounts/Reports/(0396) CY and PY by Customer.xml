@@ -1,0 +1,71 @@
+<report xmlns="http://developer.cognos.com/schemas/report/3.0/" expressionLocale="en-us"><!--RS:8.2-->
+	<modelPath>/content/package[@name='National Accounts']/model[@name='2008-05-30T16:23:26.492Z']</modelPath>
+	<layouts>
+		<layout>
+			<reportPages>
+				<page class="pg" name="p_0326">
+					<pageBody class="pb">
+						<contents><crosstab class="xt" refQuery="Main">
+								
+								
+								
+								<style>
+									<CSS value="border-collapse:collapse"/>
+								</style>
+								<crosstabRows><crosstabNode><crosstabNestedNodes><crosstabNode><crosstabNodeMembers><crosstabNodeMember refDataItem="End Customer" class="ml" edgeLocation="End Customer"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:white;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left-style:none;border-left-color:black"/></style></crosstabNodeMember></crosstabNodeMembers></crosstabNode></crosstabNestedNodes><crosstabNodeMembers><crosstabNodeMember refDataItem="Business Division" class="ml" edgeLocation="Business Division"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:white;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left-style:none;border-left-color:black"/></style></crosstabNodeMember></crosstabNodeMembers></crosstabNode></crosstabRows><crosstabColumns><crosstabNode><crosstabNestedNodes><crosstabNode><crosstabNodeMembers><crosstabNodeMember refDataItem="Invoice Pounds" class="ml" edgeLocation="Invoice Pounds"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:silver;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;vertical-align:top;text-align:right;border-left:1pt solid black"/></style></crosstabNodeMember></crosstabNodeMembers></crosstabNode><crosstabNode><crosstabNodeMembers><crosstabNodeMember refDataItem="Net Sales" class="ml" edgeLocation="Net Sales"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:silver;border-top-style:none;border-right-style:none;border-bottom-style:none;vertical-align:top;text-align:right;border-left-style:none"/></style></crosstabNodeMember></crosstabNodeMembers></crosstabNode><crosstabNode><crosstabNodeMembers><crosstabNodeMember refDataItem="Combined EBIT" class="ml" edgeLocation="Combined EBIT"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:silver;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left-style:none;border-left-color:black;vertical-align:top;text-align:right"/></style></crosstabNodeMember></crosstabNodeMembers></crosstabNode></crosstabNestedNodes><crosstabNodeMembers><crosstabNodeMember refDataItem="Fiscal Year" class="ml" edgeLocation="Fiscal Year"><contents><textItem><dataSource><memberCaption/></dataSource></textItem></contents><style><CSS value="white-space:nowrap;background-color:white;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left-style:none;border-left-color:black"/></style><sortList><sortItem refDataItem="Fiscal Year" sortOrder="descending"/></sortList></crosstabNodeMember></crosstabNodeMembers></crosstabNode></crosstabColumns><crosstabFactCell class="mv"><contents><textItem><dataSource><cellValue/></dataSource></textItem></contents></crosstabFactCell><crosstabIntersections><crosstabIntersection row="End Customer" column="Net Sales"><style><CSS value="white-space:nowrap;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none"/><dataFormat><numberFormat whenMissing="0" whenZero="0" whenDivideZero="1"/></dataFormat></style></crosstabIntersection><crosstabIntersection row="End Customer" column="Invoice Pounds"><style><CSS value="white-space:nowrap;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left:1pt solid black"/><dataFormat><numberFormat whenMissing="0" whenZero="0" whenDivideZero="1"/></dataFormat></style></crosstabIntersection><crosstabIntersection row="End Customer" column="Combined EBIT"><style><CSS value="white-space:nowrap;border-top-style:none;border-top-color:black;border-right-style:none;border-right-color:black;border-bottom-style:none;border-bottom-color:black;border-left-style:none;border-left-color:black"/><dataFormat><numberFormat whenMissing="0" whenZero="0" whenDivideZero="1"/></dataFormat></style></crosstabIntersection></crosstabIntersections></crosstab>
+						</contents>
+					</pageBody>
+				</page>
+			</reportPages>
+		<promptPages><page class="pp" name="(0396)_p1">
+					<pageHeader class="hp">
+						<contents>
+							<block class="ta">
+								<contents>
+									<textItem class="tt">
+										<dataSource>
+											<staticValue/>
+										</dataSource>
+									</textItem>
+								</contents>
+							</block>
+						</contents>
+					</pageHeader>
+					<pageBody class="py">
+						<contents><table class="tb"><tableRows><tableRow><tableCells><tableCell><contents><textItem><dataSource><staticValue>Business Division</staticValue></dataSource><style><CSS value="font-size:10pt;font-weight:bold"/></style></textItem></contents><style><CSS value="background-color:silver;border:1pt solid black"/></style></tableCell></tableCells></tableRow><tableRow><tableCells><tableCell><contents><selectValue parameter="p_bd" refQuery="q_businessDiv" multiSelect="true" selectValueUI="listBox" required="true"><useItem refDataItem="Business Division"><displayItem refDataItem="Business Division1"/></useItem></selectValue>
+												</contents><style><CSS value="border:1pt solid black"/></style></tableCell></tableCells></tableRow></tableRows><style><CSS value="border-collapse:collapse;width:25%"/></style></table></contents>
+					</pageBody>
+					<pageFooter class="fp">
+						<contents>
+							<promptButton type="cancel" class="bp">
+								<contents/>
+							</promptButton>
+							<promptButton type="back" class="bp">
+								<contents/>
+							</promptButton>
+							<promptButton type="next" class="bp">
+								<contents/>
+							</promptButton>
+							<promptButton type="finish" class="bp">
+								<contents/>
+							</promptButton>
+						</contents>
+					</pageFooter>
+				</page>
+			</promptPages></layout>
+	</layouts>
+<queries><query name="Main">
+			<source>
+				<model/>
+			</source>
+			<selection><dataItem name="Business Division" aggregate="none"><expression>[Presentation].[Fact].[Business Division]</expression></dataItem><dataItem name="End Customer" aggregate="none"><expression>[Presentation].[Fact].[End Customer]</expression></dataItem><dataItem name="Invoice Pounds" aggregate="total"><expression>[Presentation].[Fact].[Invoice Pounds]</expression></dataItem><dataItem name="Net Sales" aggregate="total"><expression>[Presentation].[Fact].[Net Sales]</expression></dataItem><dataItem name="Combined EBIT" aggregate="total"><expression>[Presentation].[Fact].[Combined EBIT]</expression></dataItem><dataItem name="Fiscal Year" aggregate="none"><expression>[Presentation].[Fact].[Fiscal Year]</expression></dataItem></selection>
+			<detailFilters><detailFilter><filterExpression>[Presentation].[Actual Data]</filterExpression></detailFilter><detailFilter><filterExpression>[Presentation].[Fact].[Business Division] in (?p_bd?)</filterExpression></detailFilter><detailFilter><filterExpression>[Presentation].[Fact].[Current Fiscal Year] = 'Y' 
+or
+[Presentation].[Fact].[Current Fiscal Year] = 'PY'</filterExpression></detailFilter></detailFilters></query>
+	<query name="q_businessDiv"><source><model/></source><selection><dataItem name="Business Division" aggregate="none"><expression>[Presentation].[Fact].[Business Division]</expression></dataItem><dataItem name="Business Division1" aggregate="none" sort="ascending"><expression>[Presentation].[Fact].[Business Division]</expression></dataItem></selection></query><query name="test">
+			<source>
+				<model/>
+			</source>
+			<selection><dataItem name="Current Fiscal Year" aggregate="none"><expression>[Presentation].[Fact].[Current Fiscal Year]</expression></dataItem></selection>
+		</query>
+	</queries></report>

@@ -1,0 +1,6 @@
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\GetIntermediateReportCode.exe.config
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\GetIntermediateReportCode.exe
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\bin\Debug\GetIntermediateReportCode.pdb
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\GetIntermediateReportCode.exe
+c:\documents and settings\millerbarr\my documents\visual studio 2010\Projects\GetIntermediateReportCode\GetIntermediateReportCode\obj\x86\Debug\GetIntermediateReportCode.pdb

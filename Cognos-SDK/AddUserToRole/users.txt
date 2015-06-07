@@ -1,0 +1,8 @@
+# This is the input file for adding users to an existing Roles. The file requires 
+# that role name and username be defined on the same line and be "~" separated
+# The role name is search path value which can be located on the 
+# "Set Properties Page" -> View the search path, ID and URL
+# 
+# For Example: CAMID(":Authors")~John Smith
+CAMID(":Authors")~Fred Temp
+CAMID(":Authors")~Joe Sample

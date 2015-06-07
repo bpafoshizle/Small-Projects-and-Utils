@@ -1,0 +1,1 @@
+=CONCATENATE("P",REPT("0",6-LEN(A1)),A1,"-",REPT("0",4-LEN(B1)),B1)

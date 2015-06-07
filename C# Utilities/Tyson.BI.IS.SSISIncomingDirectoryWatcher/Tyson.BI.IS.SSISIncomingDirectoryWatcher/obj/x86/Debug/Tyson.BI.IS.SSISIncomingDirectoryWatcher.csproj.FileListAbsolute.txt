@@ -1,0 +1,13 @@
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\bin\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.exe
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\bin\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.pdb
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.SSISIncomingDirectoryWatcher.resources
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.exe
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.pdb
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\bin\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.exe.config
+C:\Development\BI\Tyson.BI.IS\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.ProjectInstaller.resources
+C:\Users\MILLERBARR\Dropbox\Code\WorkCode\C# Utilities\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\bin\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.exe.config
+C:\Users\MILLERBARR\Dropbox\Code\WorkCode\C# Utilities\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.exe
+C:\Users\MILLERBARR\Dropbox\Code\WorkCode\C# Utilities\Tyson.BI.IS.SSISIncomingDirectoryWatcher\Tyson.BI.IS.SSISIncomingDirectoryWatcher\obj\x86\Debug\Tyson.BI.IS.SSISIncomingDirectoryWatcher.pdb

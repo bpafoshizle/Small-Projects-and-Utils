@@ -1,7 +1,6 @@
 from . import *
 
 def testAll():
-
 	testGeocode()
 
 """ Function to test renaming reports """

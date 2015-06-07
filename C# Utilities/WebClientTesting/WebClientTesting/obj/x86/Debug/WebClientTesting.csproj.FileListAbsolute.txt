@@ -1,0 +1,5 @@
+C:\Development\BI\Tyson.BI.IS\WebClientTesting\WebClientTesting\bin\Debug\WebClientTesting.exe
+C:\Development\BI\Tyson.BI.IS\WebClientTesting\WebClientTesting\bin\Debug\WebClientTesting.pdb
+C:\Development\BI\Tyson.BI.IS\WebClientTesting\WebClientTesting\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\BI\Tyson.BI.IS\WebClientTesting\WebClientTesting\obj\x86\Debug\WebClientTesting.exe
+C:\Development\BI\Tyson.BI.IS\WebClientTesting\WebClientTesting\obj\x86\Debug\WebClientTesting.pdb

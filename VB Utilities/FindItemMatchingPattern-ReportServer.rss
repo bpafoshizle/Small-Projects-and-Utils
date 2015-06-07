@@ -1,0 +1,78 @@
+    ' Call from rs.exe in a manner like:
+    ' rs -i FindItemMatchingPattern-ReportServer.rss -s http://reportweb.tyson.com/reportserver -v Folder="/Report Builder Reports/Invoice Analytics/Shared Reports" -v searchItem="Invoice" -v creatorName="TYSONET\HOLTE" -v modifierName="TYSONET\HOLTE"
+
+    Public Sub Main()
+
+        'Dim rs As New ReportingService2005()
+        'rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+        'Dim searchItem As String = "Invoice"
+        'Dim Folder As String = "/Report Builder Reports/Invoice Analytics/Shared Reports"
+        'Dim creatorName As String = "TYSONET\HOLTE"
+        'Dim modifierName As String = "TYSONET\HOLTE"
+
+
+        Dim BooleanOperator As BooleanOperatorEnum = BooleanOperatorEnum.And
+        Dim conditions(0 To 2) As SearchCondition
+        Dim returnValue As CatalogItem()
+
+        ' Set up name from what was supplied
+        Dim itemName As New SearchCondition
+        itemName.Name = "Name"
+        itemName.Value = searchItem
+        itemName.Condition = ConditionEnum.Contains
+        itemName.ConditionSpecified = True
+
+        ' Default to the root directory if it wasn't supplied
+        If Folder Is Nothing Then
+            Folder = "/"
+        End If
+
+
+        ' Set up createUser from what was supplied. Default to anyone
+        Dim itemCreateUser As New SearchCondition
+        itemCreateUser.Name = "CreatedBy"
+        If Not (creatorName Is Nothing) Then
+            itemCreateUser.Value = creatorName
+        Else
+            itemCreateUser.Value = ""
+        End If
+        itemCreateUser.Condition = ConditionEnum.Contains
+        itemCreateUser.ConditionSpecified = True
+
+        ' Set up modifyUser from what was supplied. Default to anyone
+        Dim itemModUser As New SearchCondition
+        itemModUser.Name = "ModifiedBy"
+        If Not (modifierName Is Nothing) Then
+            itemModUser.Value = modifierName
+        Else
+            itemModUser.Value = ""
+        End If
+        itemModUser.Condition = ConditionEnum.Contains
+        itemModUser.ConditionSpecified = True
+
+        conditions(0) = itemName
+        conditions(1) = itemCreateUser
+        conditions(2) = itemModUser
+
+
+        If searchItem Is Nothing Then
+            Console.WriteLine("Parameter searchItem not specified")
+        Else
+            Try
+                returnValue = rs.FindItems(Folder, BooleanOperator, conditions)
+                printReturnedItems(returnValue)
+            Catch ex As SoapException
+                Console.WriteLine(ex.Detail.OuterXml)
+            End Try
+        End If
+
+    End Sub
+
+    Function printReturnedItems(ByVal items As CatalogItem()) As Integer
+        Dim ci As CatalogItem
+        For Each ci In items
+            Console.WriteLine(ci.Path + "/" + ci.Name)
+        Next
+
+        Return True
+    End Function

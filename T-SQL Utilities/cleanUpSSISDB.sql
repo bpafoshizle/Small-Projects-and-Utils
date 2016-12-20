@@ -40,6 +40,8 @@ BEGIN
 	CHECKPOINT;
 END
 
+
+SET @rows_affected = @delete_batch_size;
 WHILE (@rows_affected = @delete_batch_size)
 BEGIN
 	BEGIN TRANSACTION;
@@ -55,6 +57,8 @@ BEGIN
 	CHECKPOINT;
 END
 
+
+SET @rows_affected = @delete_batch_size;
 WHILE (@rows_affected = @delete_batch_size)
 BEGIN
 	BEGIN TRANSACTION;
@@ -69,7 +73,7 @@ BEGIN
 	CHECKPOINT;
 END
 
-
+SET @rows_affected = @delete_batch_size;
 WHILE (@rows_affected = @delete_batch_size)
 BEGIN
 	BEGIN TRANSACTION;
@@ -87,17 +91,18 @@ END
 
 -- etc
 -- Finally, remove the entry from operations
---WHILE (@rows_affected = @delete_batch_size)
---BEGIN
---	BEGIN TRANSACTION;
---	DELETE top(@delete_batch_size) T
---	FROM
---		internal.operations AS T
---		INNER JOIN
---			#DELETE_CANDIDATES AS DC
---			ON DC.operation_id = T.operation_id;
+SET @rows_affected = @delete_batch_size;
+WHILE (@rows_affected = @delete_batch_size)
+BEGIN
+	BEGIN TRANSACTION;
+	DELETE top(@delete_batch_size) T
+	FROM
+		internal.operations AS T
+		INNER JOIN
+			#DELETE_CANDIDATES AS DC
+			ON DC.operation_id = T.operation_id;
 
---		SET @rows_affected = @@ROWCOUNT
---	COMMIT TRANSACTION;
---	CHECKPOINT;
---END
+		SET @rows_affected = @@ROWCOUNT
+	COMMIT TRANSACTION;
+	CHECKPOINT;
+END

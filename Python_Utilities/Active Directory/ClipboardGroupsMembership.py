@@ -23,8 +23,8 @@ userDictList = results[0]
 for user in userDictList:
 	userStringList.append(str(user["name"]))
 
-print "Total before call: " + str(results[1])
-print "Total left over: " + str(results[2])
+print("Total before call: " + str(results[1]))
+print("Total left over: " + str(results[2]))
 
 userStringList.sort()
 

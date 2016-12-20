@@ -23,10 +23,10 @@ namespace WebClientTesting
             Stream postStream;
             
             string cookieHeader = "";
-            string rlUser = "***REMOVED***";
-            string rlPassword = "***REMOVED***";
-            string cmUser = "***REMOVED***";
-            string cmPassword = "***REMOVED***";
+            string rlUser = "tys441A";
+            string rlPassword = "Bread26";
+            string cmUser = "IBPINC";
+            string cmPassword = "trucks33";
             string postData = "";
             byte[] postDataBytes;
             string jobId = "";
